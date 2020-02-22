@@ -10,11 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_02_22_121956) do
+=======
+ActiveRecord::Schema.define(version: 2020_02_22_145143) do
+>>>>>>> 101561f9b315bd69babf065b6b80ec758c90eadd
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+<<<<<<< HEAD
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -34,6 +39,15 @@ ActiveRecord::Schema.define(version: 2020_02_22_121956) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+=======
+  create_table "organisations", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_organisations_on_user_id"
+>>>>>>> 101561f9b315bd69babf065b6b80ec758c90eadd
   end
 
   create_table "users", force: :cascade do |t|
@@ -48,5 +62,9 @@ ActiveRecord::Schema.define(version: 2020_02_22_121956) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+<<<<<<< HEAD
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+=======
+  add_foreign_key "organisations", "users"
+>>>>>>> 101561f9b315bd69babf065b6b80ec758c90eadd
 end
