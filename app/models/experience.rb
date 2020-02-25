@@ -9,4 +9,5 @@ class Experience < ApplicationRecord
   validates :start_time, presence: true
   validates :end_time, presence: true
   validates :category, presence: true
+  monetize :price_cents
 end

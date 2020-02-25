@@ -16,6 +16,9 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'devise'
 gem 'cloudinary', '~> 1.12.0'
+gem 'money-rails'
+gem 'stripe'
+gem 'stripe_event'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

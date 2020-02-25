@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_25_212541) do
+
+ActiveRecord::Schema.define(version: 2020_02_25_204957) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,8 +50,21 @@ ActiveRecord::Schema.define(version: 2020_02_25_212541) do
     t.bigint "organisation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "price_cents", default: 0, null: false
     t.index ["organisation_id"], name: "index_experiences_on_organisation_id"
     t.index ["user_id"], name: "index_experiences_on_user_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "state"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "checkout_session_id"
+    t.bigint "user_id"
+    t.bigint "experience_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["experience_id"], name: "index_orders_on_experience_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "organisations", force: :cascade do |t|
@@ -79,5 +93,7 @@ ActiveRecord::Schema.define(version: 2020_02_25_212541) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "experiences", "organisations"
   add_foreign_key "experiences", "users"
+  add_foreign_key "orders", "experiences"
+  add_foreign_key "orders", "users"
   add_foreign_key "organisations", "users"
 end
