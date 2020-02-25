@@ -8,15 +8,19 @@ def show
 end
 
 def new
+  @organisation = Organisation.find(params[:organisation_id])
   @experience = Experience.new
+  @categories = ["Food & Drink", "Beauty & Spa", "Health & Fitness", "Music", "Theatre", "Culture", "Learning", "Art", "Once in a Liftime", "Romantic", "Couple", "Groups"]
 end
 
 def create
+  @organisation = Organisation.find(params[:organisation_id])
   @experience = Experience.new(experience_params)
+  @experience.organisation = @organisation
+  @experience.user = current_user
   @experience.save
 
   redirect_to experience_path(@experience)
-  #need to add organisation id and user id
 end
 
 def edit
@@ -38,9 +42,8 @@ end
 private
 
 def experience_params
-  params.require(:experience).permit(:name, :category, :description, :location, :date, :start_time, :end_time, :venue_name)
+  params.require(:experience).permit(:name, :category, :description, :location, :date, :start_time, :end_time)
 end
 end
-
 
 

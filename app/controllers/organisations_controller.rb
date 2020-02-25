@@ -1,5 +1,9 @@
 class OrganisationsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:new, :create, :show]
+
+  def index
+    @organisations = Organisation.all
+  end
   def new
     @organisation = Organisation.new
   end
@@ -13,6 +17,15 @@ class OrganisationsController < ApplicationController
 
   def show
     @organisation = Organisation.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
   end
 
   private
