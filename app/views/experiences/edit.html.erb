@@ -1,0 +1,13 @@
+<h1>Create an experience</h1>
+</div>
+<%= simple_form_for [@organisation, @experience] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :location%>
+  <%= f.input :date %>
+  <%= f.input :start_time %>
+  <%= f.input :end_time %>
+  <%= f.input :category, collection: @categories %>
+  <%= f.submit "Update"%>
+<% end %>
+</div>

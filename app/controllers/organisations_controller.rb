@@ -26,6 +26,9 @@ class OrganisationsController < ApplicationController
   end
 
   def destroy
+    @organisation = Organisation.find(params[:id])
+    @organisation.delete
+    redirect_to organisations_path
   end
 
   private

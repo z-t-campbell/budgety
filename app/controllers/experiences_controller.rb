@@ -5,6 +5,7 @@ end
 
 def show
   @experience = Experience.find(params[:id])
+  @organisation = @experience.organisation
 end
 
 def new
@@ -29,14 +30,16 @@ end
 
 def update
   @experience = Experience.find(params[:id])
-  @experience.update(experience_params)
-
+  @organisation = @experience.organisation
+  @experience.update
   redirect_to experience_path(@experience)
 end
 
 def destroy
   @experience = Experience.find(params[:id])
+  @organisation = @experience.organisation
   @experience.destroy
+  redirect_to organisation_path(@organisation)
 end
 
 private
