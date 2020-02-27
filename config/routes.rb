@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   mount StripeEvent::Engine, at: '/stripe-webhooks'
+
   resources :organisations do
     resources :experiences, only: [ :new, :create, :edit, :update, :destroy]
   end
