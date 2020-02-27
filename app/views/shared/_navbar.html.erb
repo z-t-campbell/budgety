@@ -24,7 +24,8 @@
       </ul>
     </div>
   </div>
-<%else%>
+
+<%else %>
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
       <%= link_to image_tag("https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png"), root_path, class: "navbar-brand"%>
 
@@ -39,19 +40,16 @@
           <%= link_to 'Become a Host', new_organisation_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to 'Book an experience', new_user_session_path, class: "nav-link" %>
+          <a class="nav-link" href="#">Acount</a>
         </li>
         <li class="nav-item dropdown">
           <p class="dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More</p>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Sign-up </a>
-            <a class="dropdown-item" href="#">Log-in</a>
+            <a class="dropdown-item" href="#">Sign-in</a>
+            <a class="dropdown-item" href="#">Sign-up</a>
           </div>
         </li>
       </ul>
     </div>
   </div>
 <%end%>
-
-
-
