@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   mount StripeEvent::Engine, at: '/stripe-webhooks'
   resources :organisations do
-    resources :experiences, only: [:index, :new, :create, :edit, :update, :destroy]
+    resources :experiences, only: [ :new, :create, :edit, :update, :destroy]
   end
-
+  resources :experiences, only: [:index]
   resources :experiences, only: [:show] do
     resources :orders, only: [:show, :create]
   end

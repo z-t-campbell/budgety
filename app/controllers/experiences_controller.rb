@@ -26,12 +26,12 @@ end
 
 def edit
   @experience = Experience.find(params[:id])
+  @organisation = Organisation.find(params[:organisation_id])
 end
 
 def update
   @experience = Experience.find(params[:id])
-  @organisation = @experience.organisation
-  @experience.update
+  @experience.update(experience_params)
   redirect_to experience_path(@experience)
 end
 
@@ -48,5 +48,3 @@ def experience_params
   params.require(:experience).permit(:name, :category, :description, :location, :date, :start_time, :end_time)
 end
 end
-
-
