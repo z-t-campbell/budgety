@@ -1,7 +1,13 @@
 <h1><%= @experience.name%></h1>
 <h3><%= @experience.date.strftime("%Y--------%d") %></h3>
-
 <%= form_tag orders_path do %>
   <%= hidden_field_tag 'experience_id', @experience.id %>
   <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
 <% end %>
+<p>Host: <%= link_to @organisation.name, organisation_path(@organisation)%></p>
+<% if current_user == @organisation.user %>
+  <%= link_to 'delete', organisation_experience_path(@organisation), method: :delete%>
+<%end%>
+<% if current_user == @organisation.user %>
+  <%= link_to 'edit', edit_organisation_experience_path(@organisation)%>
+<%end%>

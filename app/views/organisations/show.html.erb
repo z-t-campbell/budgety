@@ -1,2 +1,11 @@
 <h1><%= @organisation.name%></h1>
-<li><%= link_to 'Create an Experience', new_organisation_experience_path(@organisation)%></li>
+<ul>
+  <% @organisation.experiences.each do |experience|%>
+  <li><%= link_to experience.name, experience_path(experience)%></li>
+  <%end%>
+</ul>
+<%= link_to 'Create an Experience', new_organisation_experience_path(@organisation)%>
+<br>
+<% if current_user = @organisation.user %>
+  <%= link_to 'delete organisation', organisation_path(@organisation), method: :delete%>
+<%end%>
