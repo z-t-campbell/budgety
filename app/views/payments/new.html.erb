@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row py-4">
-    <div class="col-md-3"><%= image_tag @order.experience_id.photo_url, width: '100%' %></div>
+  <div class="col-md-3"><%= cl_image_tag @order.experience.photos.first.key, width: '100%' %></div>
     <div class="col">
       <h1>Checkout summary</h1>
       <p>Purchase of <strong><%= @order.experience.name %></strong> for <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
@@ -14,7 +14,7 @@
             sessionId: '<%= @order.checkout_session_id %>'
           });
         });
-      </script> -->
+      </script>
     </div>
   </div>
 </div>
