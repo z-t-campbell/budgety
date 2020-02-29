@@ -8,7 +8,8 @@
   <%= f.input :start_time %>
   <%= f.input :end_time %>
   <%= f.input :category, collection: @categories %>
-  <%= f.submit "Post"%>
+  <%= f.input :photos, as: :file, :multiple => true%>
+  <%= f.submit "Host"%>
 <% end %>
 </div>
 

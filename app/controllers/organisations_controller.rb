@@ -4,6 +4,7 @@ class OrganisationsController < ApplicationController
   def index
     @organisations = Organisation.all
   end
+
   def new
     @organisation = Organisation.new
   end
@@ -20,15 +21,19 @@ class OrganisationsController < ApplicationController
   end
 
   def edit
+    @organisation = Organisation.find(params[:id])
   end
 
   def update
+    @organisation = Organisation.find(params[:id])
+    @organisation.update(organisation_params)
+    redirect_to organisation_path(@organisation)
   end
 
   def destroy
     @organisation = Organisation.find(params[:id])
     @organisation.delete
-    redirect_to organisations_path
+    redirect_to root_path
   end
 
   private
