@@ -17,7 +17,6 @@
 <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill%>
     <%end%>
 </div>
-
 <p>Host: <%= link_to @organisation.name, organisation_path(@organisation)%></p>
 <% if current_user == @organisation.user %>
   <%= link_to 'Delete', organisation_experience_path(@organisation), method: :delete, :class => "btn btn-primary"%>
