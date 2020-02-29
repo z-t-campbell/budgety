@@ -9,3 +9,26 @@
 #   name: 'Your name',
 #   email: '')
 
+require "open-uri"
+
+Order.destroy_all
+Experience.destroy_all
+User.destroy_all
+
+puts "creating users"
+trUser.create(email: "maria@cool.com", password: "123456")
+User.create(email: "lucy@cool.com", password: "123456")
+
+puts "creating organisations"
+file = URI.open('https://res.cloudinary.com/dmwa29qvx/image/upload/v1581174946/fake_bouquet_q4rugt.jpg')
+prop = Prop.new(name: 'Wedding Bouquet', description: "Beautiful wedding bouquet(fake) for hire", price: 15, availability: 'Now', location: "123 Kingsland Road", user: User.first)
+prop.photos.attach(io: file, filename: 'fake_bouquet.jpg', content_type: 'image/jpg')
+prop.save!
+
+# fake flowers
+
+
+file = URI.open('https://res.cloudinary.com/dmwa29qvx/image/upload/v1581174946/fake_table_flowers_kzcv1j.jpg')
+prop = Prop.new(name: 'Wedding Flowers', description: "Beautiful wedding flowers for hire", price: 60, availability: 'Now', location: "1 Willow Lane, Mitcham", user: User.first )
+prop.photos.attach(io: file, filename: 'fake_flowers.jpg', content_type: 'image/jpg')
+prop.save!
