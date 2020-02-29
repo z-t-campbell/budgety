@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :experiences, only: [ :new, :create, :edit, :update, :destroy]
   end
   resources :experiences, only: [:index]
+
   resources :experiences, only: [:show] do
     resources :orders, only: [:show, :create]
   end

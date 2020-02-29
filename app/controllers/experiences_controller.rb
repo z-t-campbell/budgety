@@ -18,7 +18,6 @@ def create
   @organisation = Organisation.find(params[:organisation_id])
   @experience = Experience.new(experience_params)
   @experience.organisation = @organisation
-  @experience.user = current_user
   @experience.save
 
   redirect_to experience_path(@experience)
@@ -45,6 +44,6 @@ end
 private
 
 def experience_params
-  params.require(:experience).permit(:name, :category, :description, :location, :date, :start_time, :end_time)
+  params.require(:experience).permit(:name, :category, :description, :location, :date, :start_time, :end_time, :photos)
 end
 end

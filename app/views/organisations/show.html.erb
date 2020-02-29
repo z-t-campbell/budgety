@@ -7,5 +7,7 @@
 <%= link_to 'Create an Experience', new_organisation_experience_path(@organisation)%>
 <br>
 <% if current_user = @organisation.user %>
+  <%= link_to 'edit organisation', edit_organisation_path(@organisation)%>
+  <br>
   <%= link_to 'delete organisation', organisation_path(@organisation), method: :delete%>
 <%end%>
