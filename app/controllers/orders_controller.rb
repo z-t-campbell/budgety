@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
     payment_method_types: ['card'],
     line_items: [{
       name: experience.name,
-      images: [experience.photo_url],
+      images: [experience.photos],
       amount: experience.price_cents,
       currency: 'gbp',
       quantity: 1

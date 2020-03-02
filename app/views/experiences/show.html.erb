@@ -1,11 +1,37 @@
+<div class="container">
+  <div class="row justify content-center">
+    <div class="col-6 col-lg-6 my-4 p-1">
+      <div class="card" style="width: 28rem;, height: 28rem;">
+        <div class="text-center">
+  <div class="card-body">
+    <div class-"text-center">
 <h1><%= @experience.name%></h1>
-<h3><%= @experience.date.strftime("%d-%m-%Y") %></h3>
-<%= form_tag orders_path do %>
+<p><%= @experience.description %>
+<h4>Location: <%= @experience.location%></h4>
+<h5>Date: <%= @experience.date.strftime('%d-%m-%Y') %></h5>
+<h5>Start time: <%= @experience.start_time.strftime('%H:%M') %></h5>
+<h5>End time: <%= @experience.end_time.strftime('%H:%M') %></h5>
+<p>Amount: <%= humanized_money_with_symbol(@experience.price) %></p>
+<div>
+<% @experience.photos.each do |photo| %>
+<%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill%>
+    <%end%>
+</div>
+<p>Host: <%= link_to @organisation.name, organisation_path(@organisation)%></p>
+<% if current_user.id == @organisation.user.id %>
+  <%= link_to 'Delete', organisation_experience_path(@organisation), method: :delete, :class => "btn btn-primary"%>
+   <%= link_to 'Edit', edit_organisation_experience_path(@organisation), :class => "btn btn-primary"%>
+<%else%>
+ <%= form_tag orders_path do %>
   <%= hidden_field_tag 'experience_id', @experience.id %>
   <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
 <% end %>
-<p>Host: <%= link_to @organisation.name, organisation_path(@organisation)%></p>
-<% if current_user.id == @organisation.user.id %>
-  <%= link_to 'delete', organisation_experience_path(@organisation), method: :delete%>
-  <%= link_to 'edit', edit_organisation_experience_path(@organisation)%>
 <%end%>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
