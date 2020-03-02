@@ -32,7 +32,11 @@ class OrganisationsController < ApplicationController
 
   def destroy
     @organisation = Organisation.find(params[:id])
-    @organisation.delete
+    if @organisation
+      @organisation.destroy
+    else
+      render :show
+    end
     redirect_to root_path
   end
 

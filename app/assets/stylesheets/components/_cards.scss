@@ -1,0 +1,46 @@
+.card-experience {
+  overflow: hidden;
+  background: transparent;
+  width: 200px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.card-experience img {
+  height: 120px;
+  object-fit: cover;
+}
+
+.card-experience h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-experience p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-experience .card-experience-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-experience-infos .card-experience-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
+.card-container {
+  margin-top: 40px;
+  margin-right: 200px;
+  margin-left: 200px;
+}

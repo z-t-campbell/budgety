@@ -1,3 +1,20 @@
-<p><%= link_to 'All Organisations', organisations_path%></p>
-<p><%= link_to 'All Experiences', experiences_path%></p>
-
+<% if @experiences %>
+  <div class= "card-container d-flex flex-row">
+    <% @experiences.each do |experience| %>
+      <%= link_to experience_path(experience) do %>
+        <div class= "card-experience">
+          <% if experience.photos.attached?%>
+            <%= cl_image_tag(experience.photos.first.key)%>
+          <%else%>
+            <%= image_tag 'default-image.png'%>
+          <%end%>
+          <h2><%= link_to experience.name, experience_path(experience) %></h2>
+          <p><%= experience.date.strftime("%d-%m-%Y") %></p>
+          <p><%= experience.start_time %> - <%= experience.end_time%></p>
+          <p><%= link_to experience.organisation.name, organisation_path(experience.organisation) %></p>
+          <p><%= experience.location %></p>
+        </div>
+      <%end%>
+    <%end%>
+  </div>
+<%end%>
