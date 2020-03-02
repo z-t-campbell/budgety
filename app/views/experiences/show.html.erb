@@ -18,7 +18,7 @@
     <%end%>
 </div>
 <p>Host: <%= link_to @organisation.name, organisation_path(@organisation)%></p>
-<% if current_user == @organisation.user %>
+<% if current_user.id == @organisation.user.id %>
   <%= link_to 'Delete', organisation_experience_path(@organisation), method: :delete, :class => "btn btn-primary"%>
    <%= link_to 'Edit', edit_organisation_experience_path(@organisation), :class => "btn btn-primary"%>
 <%else%>

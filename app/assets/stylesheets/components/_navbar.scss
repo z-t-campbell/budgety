@@ -1,6 +1,9 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+.navbar-bg {
+
+  background: #188FA7;
+  padding: 0;
+  width: 100vw;
+  height: 80px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +12,64 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.nav-links-white a {
+  color: white;
+}
+.nav-links-drk a {
+  color: #6F8695;
+}
+
+
+.input-location-icon input{
+  padding-left: 40px;
+}
+
+.input-location-icon  {
+  position: relative;
+}
+
+.input-location-icon i {
+  font-size: 22px;
+  color: #6F8695;
+  position: absolute;
+  top: 4px;
+  left: 10px;
+}
+
+.wallet-btn {
+ background-color: transparent;
+ border: transparent;
+
+}
+
+
+.wallet-btn i {
+  font-size: 28px;
+  color: white;
+}
+
+.nav-items {
+  justify-content: space-between;
+  padding-left: 200px;
+  padding-right: 200px;
+  width: 100vw;
+}
+
+.nav-form {
+ padding-left: 100px;
+}
+
+.nav-avatar {
+  padding-right: 40px;
+}
+
+.nav-form input {
+  height: 28px;
+  width: 120px;
+}
+
+body {
+  background-color: white;
 }
