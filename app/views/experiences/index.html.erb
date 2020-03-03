@@ -1,7 +1,9 @@
 <div class="content d-flex">
   <div class="cards">
     <% @experiences.each do |experience|%>
-      <%= link_to experience.name, experience_path(experience) %>
+      <h2><%= link_to experience.name, experience_path(experience) %></h2>
+      <p><%= experience.description %></p>
+      <p><%= experience.location %></p>
       <div>
     <% end %>
 
