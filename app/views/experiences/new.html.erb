@@ -14,7 +14,7 @@
   <%= f.input :start_time, input_html: { class: "form-control", required: true , oninvalid: "this.setCustomValidity('Please select a time')"} %>
   <%= f.input :end_time, input_html: { class: "form-control", required: true , oninvalid: "this.setCustomValidity('Please select a time')"} %>
   <%= f.input :category, input_html: { class: "form-control", required: true , oninvalid: "this.setCustomValidity('Select a category)"}, collection: @categories %>
-  <%= f.input :price %>
+  <%= f.input :price, label: "Price (PP)"%>
   <%= f.input :photos, as: :file, :multiple => true%>
   <%= f.submit "Host", class: "btn btn-primary btn-lg btn-block"%>
 <% end %>

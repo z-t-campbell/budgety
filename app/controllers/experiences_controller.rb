@@ -11,7 +11,7 @@ end
 def new
   @organisation = Organisation.find(params[:organisation_id])
   @experience = Experience.new
-  @categories = ["Art & Theatre", "Food & Drink", "Beauty & Spa", "Health & Fitness", "Music", "Culture", "Learning", "Family", "Romantic", "Couple", "Groups"]
+  @categories = ["Arts, Theatre & Shows", "Comedy", "Food & Drink", "Beauty & Spa", "Health & Fitness", "Music Events", "Culture", "Learning", "Family", "Romantic", "Couples", "Groups", "Gift Ideas"]
 end
 
 def create

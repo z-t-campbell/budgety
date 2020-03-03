@@ -1,3 +1,4 @@
+
 .navbar-bg {
 
   background: #188FA7;
@@ -38,31 +39,29 @@
   left: 10px;
 }
 
-.wallet-btn {
+.pound-btn {
  background-color: transparent;
  border: transparent;
 
 }
 
-
-.wallet-btn i {
-  font-size: 28px;
+.pound-btn i {
+  font-size: 24px;
   color: white;
 }
 
 .nav-items {
   justify-content: space-between;
-  padding-left: 200px;
-  padding-right: 200px;
-  width: 100vw;
+  width: 1100px;
+  margin: 0 auto;
 }
 
 .nav-form {
- padding-left: 100px;
+
 }
 
 .nav-avatar {
-  padding-right: 40px;
+
 }
 
 .nav-form input {

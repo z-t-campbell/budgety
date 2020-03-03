@@ -1,14 +1,19 @@
+.cards-container {
+  width: 1100px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
 .card-experience {
   overflow: hidden;
   background: transparent;
-  width: 200px;
-  margin-right: 10px;
+  position: relative;
   margin-left: 10px;
 }
 
 .card-experience img {
-  height: 120px;
-  object-fit: cover;
+  width: 350px;
+  height: 200px;
 }
 
 .card-experience h2 {
@@ -17,30 +22,28 @@
   margin: 0;
 }
 
-.card-experience p {
+.card-experience {
   font-size: 12px;
-  opacity: .7;
   margin: 0;
 }
 
-
-.card-experience .card-experience-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
+.card-experience p {
+  margin-bottom: 0;
 }
 
-.card-experience-infos .card-experience-user {
+.card-price {
+  color:#188FA7;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.trending-card {
+  color: white;
+  background: #1C448E;
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-weight: bold;
   position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
-}
-
-.card-container {
-  margin-top: 40px;
-  margin-right: 200px;
-  margin-left: 200px;
+  top:0;
 }
