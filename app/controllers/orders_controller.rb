@@ -1,4 +1,8 @@
 class OrdersController < ApplicationController
+def index
+  @orders = Order.all
+end
+
   def create
   experience = Experience.find(params[:experience_id])
   order  = Order.create!(experience: experience, amount: experience.price, state: 'pending', user: current_user)
