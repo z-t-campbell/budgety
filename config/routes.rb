@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :experiences, only: [:index, :show]
 
   resources :experiences, only: [:show] do
-    resources :orders, only: [:show, :create]
+    resources :orders, only: [:index, :show, :create]
   end
 
   resources :orders, only: [:show, :create] do
