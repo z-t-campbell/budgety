@@ -1,6 +1,6 @@
 <%= render 'shared/subnavbar'%>
 <% if @experiences %>
-  <div class= "cards-container d-flex flex-row">
+  <div class= "cards-container d-flex flex-row  flex-wrap">
     <% @experiences.each do |experience| %>
       <%= link_to experience_path(experience) do %>
         <div class= "card-experience">
