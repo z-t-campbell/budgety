@@ -1,27 +1,45 @@
-<%= render 'shared/subnavbar'%>
-<% if @experiences %>
+
+
+<%= form_tag experiences_path, method: :get do %>
+  <%= text_field_tag :budget,
+    params[:budget],
+    class: "form-control",
+    placeholder: "Find an experiences"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+<!-- the list of experiences -->
+
+x
+
+
+
+
+<!--
+<%# if @experiences %>
   <div class= "cards-container d-flex flex-row  flex-wrap">
-    <% @experiences.each do |experience| %>
-      <%= link_to experience_path(experience) do %>
+    <%# @experiences.each do |experience| %>
+      <%#= link_to experience_path(experience) do %>
         <div class= "card-experience">
-          <% if experience.photos.attached?%>
-            <%= cl_image_tag(experience.photos.first.key)%>
-          <%else%>
-            <%= image_tag 'default-image.png'%>
-          <%end%>
+          <%# if experience.photos.attached?%>
+            <%#= cl_image_tag(experience.photos.first.key)%>
+          <%#else%>
+            <%#= image_tag 'default-image.png'%>
+          <%#end%>
           <div>
-            <h2 class="text-capitalize"><%= link_to experience.name, experience_path(experience) %></h2>
-            <p> Date: <%=experience.date.strftime("%d-%m-%Y") %>  Time: <%= experience.start_time.strftime('%H:%M') %> - <%= experience.end_time.strftime('%H:%M')%></p>
-            <p><%= experience.description%></p>
-            <p>Location: <%= experience.location %></p>
-            <p>Host: <%= link_to experience.organisation.name, organisation_path(experience.organisation) %></p>
-            <p class="card-price"><%= humanized_money_with_symbol(experience.price) %></p>
+            <h2 class="text-capitalize"><%#= link_to experience.name, experience_path(experience) %></h2>
+            <p> Date: <%#=experience.date.strftime("%d-%m-%Y") %>  Time: <%#= experience.start_time.strftime('%H:%M') %> - <%#= experience.end_time.strftime('%H:%M')%></p>
+            <p><%#= experience.description%></p>
+            <p>Location: <%#= experience.location %></p>
+            <p>Host: <%#= link_to experience.organisation.name, organisation_path(experience.organisation) %></p>
+          <p class="card-price"><%#= humanized_money_with_symbol(experience.price) %></p>
           </div>
           <div class= "trending-card">
             Trending
           </div>
         </div>
-      <%end%>
-    <%end%>
+      <%#end%>
+    <%#end%>
   </div>
-<%end%>
+<%#end%>
+   -->

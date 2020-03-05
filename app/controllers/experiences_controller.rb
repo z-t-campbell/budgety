@@ -1,6 +1,15 @@
 class ExperiencesController < ApplicationController
 def index
   @experiences = Experience.all
+  # if params[:query].present?
+  #   @experiences = Experience.where("location ILIKE ?", "%#{params[:query]}%")
+  # else
+  #   @experiences = Experience.all
+  # end
+
+  @experiences = @experiences.where(price_cents: params["budget"].to_f*100) if params["budget"].present?
+  @experiences = @experiences.where(category: params["category"]) if params["category"].present?
+  @experiences = @experiences.where(location: params["location"]) if params["location"].present?
 end
 
 def show
