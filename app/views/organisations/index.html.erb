@@ -1,6 +1,8 @@
 <ul>
   <%@organisations.each do |organisation|%>
-    <li><%= link_to organisation.name, organisation_path(organisation)%></li>
+    <% if current_user.id == organisation.user.id %>
+      <li><%= link_to organisation.name, organisation_path(organisation)%></li>
+    <%end%>
   <%end%>
 </ul>
 

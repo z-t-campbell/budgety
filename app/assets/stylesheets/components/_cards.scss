@@ -2,28 +2,27 @@
   width: 1100px;
   margin: 0 auto;
   margin-top: 20px;
+  justify-content: center;
 }
 
 .card-experience {
   overflow: hidden;
   background: transparent;
   position: relative;
-  margin-left: 10px;
+  margin-right: 20px;
+  width: 300px;
+  font-size: 12px;
+  margin-right:25px;
 }
 
 .card-experience img {
-  width: 350px;
+  width: 300px;
   height: 200px;
 }
 
 .card-experience h2 {
   font-size: 16px;
   font-weight: bold;
-  margin: 0;
-}
-
-.card-experience {
-  font-size: 12px;
   margin: 0;
 }
 
@@ -37,7 +36,7 @@
   font-weight: bold;
 }
 
-.trending-card {
+.category-card {
   color: white;
   background: #1C448E;
   display: inline-block;
@@ -47,3 +46,5 @@
   position: absolute;
   top:0;
 }
+
+

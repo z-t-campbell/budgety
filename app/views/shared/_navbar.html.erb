@@ -64,7 +64,7 @@
                 <%end%>
                 <div class="dropdown-menu nav-links-drk" aria-labelledby="navbarDropdownMenuLink">
                   <%= link_to 'Account', root_path, class: "dropdown-item" %>
-                  <%= link_to 'Bookings', root_path, class: "dropdown-item" %>
+                  <%= link_to 'Bookings', orders_path, class: "dropdown-item" %>
                   <%if current_user.organisations.empty?%>
                   <%= link_to 'Listings', new_organisation_path, class: "dropdown-item" %>
                   <% else %>
@@ -95,7 +95,7 @@
               <input class="form-control mr-sm-2" type="search" placeholder="Location" aria-label="Search">
             </div>
             <input class="form-control mr-sm-2" type="search" placeholder="Set your budget" aria-label="Search">
-            <button class="wallet-btn my-2 my-sm-0" type="submit"><i class="fas fa-wallet"></i></button>
+            <button class="pound-btn  my-2 my-sm-0" type="submit"><i class="fas fa-wallet"></i></button>
           </form>
         </div>
         <div>
