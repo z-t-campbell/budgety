@@ -1,5 +1,5 @@
 class AddIdToReviews < ActiveRecord::Migration[5.2]
   def change
-    add_column :reviews, :order_id
+    add_reference :reviews, :order, foreign_key: true
   end
 end

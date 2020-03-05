@@ -4,12 +4,34 @@
       <div class = "d-flex flex-row">
         <%= link_to 'Budgety', root_path, class: "navbar-brand" %>
         <form class="nav-form form-inline my-2 my-lg-0">
-          <div class="input-location-icon ">
-            <i class="fas fa-map-marker-alt"></i>
-            <input class="form-control mr-sm-2" type="search" placeholder="Location" aria-label="Search">
-          </div>
-          <input class="form-control mr-sm-2" type="search" placeholder="Set your budget" aria-label="Search">
+
+
+
+          <!-- Search bar for location component -->
+
+            <%= form_tag experiences_path, method: :get do %>
+              <button class="input-location-icon mr-sm-2" type="submit"><i class="fas fa-map-marker-alt"></i></button>
+              <%= search_field_tag :location,
+                params[:location],
+                class: "form-control mr-sm-2",
+                placeholder: "Location2"
+              %>
+            <% end %>
+
+          <!--  -->
+
+
+          <!-- Search bar for budget component-->
+          <%= form_tag experiences_path, method: :get do %>
+            <%= text_field_tag :budget,
+              params[:budget],
+              class: "form-control mr-sm-2",
+              placeholder: "Set your budget"
+            %>
           <button class="pound-btn my-2 my-sm-0" type="submit"><i class="fas fa-pound-sign"></i></button>
+          <% end %>
+          <!--  -->
+
         </form>
       </div>
       <div>
@@ -43,7 +65,7 @@
             </div>
             <div>
               <li class="nav-item">
-                <a class="nav-link" href="#">Host <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#">Welcome <%= current_user.first_name %> <span class="sr-only">(current)</span></a>
               </li>
             </div>
           </ul>

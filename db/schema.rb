@@ -79,6 +79,8 @@ ActiveRecord::Schema.define(version: 2020_03_03_213934) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "order_id"
+    t.index ["order_id"], name: "index_reviews_on_order_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -100,4 +102,5 @@ ActiveRecord::Schema.define(version: 2020_03_03_213934) do
   add_foreign_key "orders", "experiences"
   add_foreign_key "orders", "users"
   add_foreign_key "organisations", "users"
+  add_foreign_key "reviews", "orders"
 end

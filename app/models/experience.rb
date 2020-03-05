@@ -10,4 +10,13 @@ class Experience < ApplicationRecord
   validates :end_time, presence: true
   validates :category, presence: true
   monetize :price_cents
+
+
+  include PgSearch::Model
+  pg_search_scope :search_by_location_and_category,
+    against: [ :location, :category ],
+    using: {
+    tsearch: { prefix: true }
+    }
+
 end
