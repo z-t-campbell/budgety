@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   def show
+    @order = Order.find(params[:order_id])
   end
 
   def new
@@ -11,7 +12,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @order = Order.find(params[:order_id])
     @review.order = @order
-    if review.save
+    if @review.save
       redirect_to orders_path(@order)
     else
       render :new

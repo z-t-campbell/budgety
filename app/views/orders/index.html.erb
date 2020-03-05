@@ -8,24 +8,32 @@
       <div class="card" style="width: 28rem;, height: 28rem;">
         <div class="text-center">
           <div class="card-body">
-            <ul>
-  <%@orders.each do |order|%>
-    <h1><%= order.experience.name%></h1>
-    <h4>Location: <%= order.experience.location%></h4>
-    <h5>Date: <%= order.experience.date.strftime('%d-%m-%Y') %></h5>
-    <h5>Start time: <%= order.experience.start_time.strftime('%H:%M') %></h5>
-    <h5>End time: <%= order.experience.end_time.strftime('%H:%M') %></h5>
-    <h5>Amount: <%= humanized_money_with_symbol(order.experience.price) %></h5>
-</ul>
-<% order.experience.photos.each do |photo| %>
-<%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill%>
-    <%end%>
-    <%= link_to "Add a Review", new_order_review_path(@order), :class => "btn btn-primary"%>
- <%end%>
-</div>
-</div>
-</div>
-</div>
-</div>
+            <%@orders.each do |order|%>
+              <ul>
+                <h1><%= order.experience.name%></h1>
+                <h4>Location: <%= order.experience.location%></h4>
+                <h5>Date: <%= order.experience.date.strftime('%d-%m-%Y') %></h5>
+                <h5>Start time: <%= order.experience.start_time.strftime('%H:%M') %></h5>
+                <h5>End time: <%= order.experience.end_time.strftime('%H:%M') %></h5>
+                <h5>Amount: <%= humanized_money_with_symbol(order.experience.price) %></h5>
+              </ul>
+              <% order.experience.photos.each do |photo| %>
+                <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill%>
+              <%end%>
+              <%= link_to "Add a Review", new_order_review_path(order), :class => "btn btn-primary"%>
+              <%= order.review.try(:title) %>
+              <%= order.review.try(:content) %>
+              <%= order.review.try(:rating) %>
+              <p>
+                <% order.review.rating.times do %>
+                  <span>*</span>
+                <% end %>
+              </p>
+            <%end%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
