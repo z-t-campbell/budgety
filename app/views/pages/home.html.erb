@@ -17,8 +17,8 @@
             <p>Host: <%= link_to experience.organisation.name, organisation_path(experience.organisation) %></p>
             <p class="card-price"><%= humanized_money_with_symbol(experience.price) %></p>
           </div>
-          <div class= "trending-card">
-            Trending
+          <div class= "category-card">
+            <%= experience.category %>
           </div>
         </div>
       <%end%>

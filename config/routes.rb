@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :organisations do
     resources :experiences, only: [ :new, :create, :edit, :update, :destroy]
   end
+
   resources :experiences, only: [:index, :show]
 
   resources :experiences, only: [:show] do
