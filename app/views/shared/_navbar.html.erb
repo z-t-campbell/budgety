@@ -9,13 +9,6 @@
 
           <!-- Search bar for location component -->
 
-          <div class="input-location-icon ">
-            <i class="fas fa-map-marker-alt"></i>
-            <input class="form-control mr-sm-2" type="search" placeholder="Location1" aria-label="Search">
-          </div>
-
-
-          <div class="location-search">
             <%= form_tag experiences_path, method: :get do %>
               <button class="input-location-icon mr-sm-2" type="submit"><i class="fas fa-map-marker-alt"></i></button>
               <%= search_field_tag :location,
@@ -24,10 +17,6 @@
                 placeholder: "Location2"
               %>
             <% end %>
-          </div>
-
-
-
 
           <!--  -->
 
