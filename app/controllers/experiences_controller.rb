@@ -1,17 +1,27 @@
 class ExperiencesController < ApplicationController
-skip_before_action :authenticate_user!, only: [:new, :create, :show]
+skip_before_action :authenticate_user!, only: [:new, :create, :show ,:index]
 
 def index
   @experiences = Experience.all
+  @experiences = @experiences.where("location ILIKE ?", "%#{params[:location]}%") if params[:location].present?
+  @location = params[:location]
+  @experiences = @experiences.where("category ILIKE ?", "%#{params[:category]}%") if params[:category].present?
+  @category = params[:category]
+  @experiences = @experiences.where("price_cents <= ?", params[:budget].to_f*100) if params["budget"].present?
+  @category = params[:budget]
+  # if params[:location].present? && params[:category].present?
+  #   @experiences = Experience.where("location ILIKE ?", "%#{params[:location]}%")
+  #   @location = params[:location]
+  # elsif
+  #   @experiences = Experience.all
+  # end
   # if params[:query].present?
   #   @experiences = Experience.where("location ILIKE ?", "%#{params[:query]}%")
   # else
   #   @experiences = Experience.all
   # end
 
-  @experiences = @experiences.where(price_cents: params["budget"].to_f*100) if params["budget"].present?
-  @experiences = @experiences.where(category: params["category"]) if params["category"].present?
-  @experiences = @experiences.where(location: params["location"]) if params["location"].present?
+
 end
 
 def show
