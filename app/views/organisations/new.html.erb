@@ -1,9 +1,21 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6 my-3">
+      <div class="card" style="width: 28rem;">
+        <div class="search-form box-shadow p-4">
+          <div class="text-center">
 <h1>Create an organisation</h1>
 </div>
 <%= simple_form_for (@organisation) do |f| %>
   <%= f.input :name %>
   <%= f.input :location %>
-  <%= f.submit "Create"%>
+  <%= f.input :photos, as: :file, :multiple => true%>
+  <%= f.submit "Create", class: "btn btn-primary btn-lg btn-block"%>
 <% end %>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
