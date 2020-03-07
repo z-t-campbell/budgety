@@ -1,5 +1,5 @@
 <div class="text-center">
-<h1>Bookings</h1>
+  <h1>Bookings</h1>
 </div>
 
 <div class="container">
@@ -20,16 +20,24 @@
               <% order.experience.photos.each do |photo| %>
                 <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill%>
               <%end%>
-              <%= link_to "Add a Review", new_order_review_path(order), :class => "btn btn-primary"%>
-              <%= order.review.try(:title) %>
-              <%= order.review.try(:content) %>
-              <%= order.review.try(:rating) %>
-              <p>
-                <% order.review.rating.times do %>
-                  <span>*</span>
-                <% end %>
-              </p>
-            <%end%>
+              <% if order.review %>
+                <div>
+                 <%= order.review.try(:title) %>
+                </div>
+                <div>
+                 <%= order.review.try(:content) %>
+                </div>
+                <div>
+                  <p>
+                    <% order.review.rating.times do %>
+                      <i class="fas fa-star"></i>
+                    <% end %>
+                  </p>
+                </div>
+              <% else %>
+               <%= link_to "Add a Review", new_order_review_path(order), :class => "btn btn-primary"%>
+              <% end %>
+            <% end %>
           </div>
         </div>
       </div>
