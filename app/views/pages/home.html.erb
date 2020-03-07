@@ -1,15 +1,4 @@
-
-
-<%= form_tag experiences_path, method: :get do %>
-  <%= text_field_tag :budget,
-    params[:budget],
-    class: "form-control",
-    placeholder: "Find an experiences"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
 <!-- the list of experiences -->
-
 <% if @experiences %>
   <div class= "cards-container d-flex flex-row  flex-wrap">
     <% @experiences.each do |experience| %>

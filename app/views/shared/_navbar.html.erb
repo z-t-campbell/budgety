@@ -1,40 +1,22 @@
 <%  if user_signed_in?%>
   <nav class="navbar navbar-expand-lg nav-links-white navbar-bg">
-    <di class = "d-flex flex-row justify-content-between nav-items">
-      <div class = "d-flex flex-row">
+
+    <div class = "d-flex flex-row justify-content-between align-middle nav-items">
+
+      <div class = "">
         <%= link_to 'Budgety', root_path, class: "navbar-brand" %>
-        <form class="nav-form form-inline my-2 my-lg-0">
-
-
-
-          <!-- Search bar for location component -->
-
-            <%= form_tag experiences_path, method: :get do %>
-              <button class="input-location-icon mr-sm-2" type="submit"><i class="fas fa-map-marker-alt"></i></button>
-              <%= search_field_tag :location,
-                params[:location],
-                class: "form-control mr-sm-2",
-                placeholder: "Location2"
-              %>
-            <% end %>
-
-          <!--  -->
-
-
-          <!-- Search bar for budget component-->
-          <%= form_tag experiences_path, method: :get do %>
-            <%= text_field_tag :budget,
-              params[:budget],
-              class: "form-control mr-sm-2",
-              placeholder: "Set your budget"
-            %>
-          <button class="pound-btn my-2 my-sm-0" type="submit"><i class="fas fa-pound-sign"></i></button>
-          <% end %>
-          <!--  -->
-
-        </form>
       </div>
+
       <div>
+        <%= form_tag experiences_path, method: :get, class: "d-flex flex-row" do %>
+           <%= text_field_tag :location, nil, placeholder: 'Location..', class: "form-control" %>
+           <%= text_field_tag :budget, nil, placeholder: 'Your budget...', class: "form-control" %>
+           <%= submit_tag "Search", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+
+      <div>
+        <div class="d-flex flex-row">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -46,70 +28,47 @@
                   <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <%= cl_image_tag(current_user.photo.key, class: 'avatar-large')%>
                   </a>
-              <%else%>
+                <%else%>
                   <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-user-alt avatar-size"></i>
                   </a>
                 <%end%>
-                <div class="dropdown-menu nav-links-drk" aria-labelledby="navbarDropdownMenuLink">
-                  <%= link_to 'Account', root_path, class: "dropdown-item" %>
-                  <%= link_to 'Bookings', orders_path, class: "dropdown-item" %>
-                  <%if current_user.organisations.empty?%>
-                  <%= link_to 'Listings', new_organisation_path, class: "dropdown-item" %>
-                  <% else %>
-                  <%= link_to 'Listings', organisations_path, class: "dropdown-item" %>
-                  <%end%>
-                  <%= link_to 'Sign-out', destroy_user_session_path, method: :delete, class: "dropdown-item"%>
-                </div>
               </li>
             </div>
-              <div>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Host <span class="sr-only">(current)</span></a>
-                </li>
-              </div>
+            <div class="dropdown-menu nav-links-drk" aria-labelledby="navbarDropdownMenuLink">
+              <%= link_to 'Account', root_path, class: "dropdown-item" %>
+              <%= link_to 'Bookings', orders_path, class: "dropdown-item" %>
+              <%= link_to 'Listings', new_organisation_path, class: "dropdown-item" %>
+              <%= link_to 'Listings', organisations_path, class: "dropdown-item" %>
+              <%= link_to 'Sign-out', destroy_user_session_path, method: :delete, class: "dropdown-item"%>
+            </div>
           </ul>
         </div>
+        <div>
+          <%= link_to 'Host', new_organisation_path, class: "nav-link "%>
+        </div>
       </div>
-    </di>
+    </div>
   </nav>
 <%else %>
   <nav class="navbar navbar-expand-lg nav-links-white navbar-bg">
-      <di class = "d-flex flex-row justify-content-between nav-items">
-        <div class = "d-flex flex-row">
-          <%= link_to 'Budgety', root_path, class: "navbar-brand" %>
-          <form class="nav-form form-inline my-2 my-lg-0">
 
+    <div class = "d-flex flex-row justify-content-between align-middle nav-items">
 
+      <div>
+        <%= link_to 'Budgety', root_path, class: "navbar-brand" %>
+      </div>
 
-          <!-- Search bar for location component -->
+      <div>
+        <%= form_tag experiences_path, method: :get, class: "d-flex flex-row" do %>
+          <%= text_field_tag :location, nil, placeholder: 'Location..', class: "form-control" %>
+          <%= text_field_tag :budget, nil, placeholder: 'Your budget...', class: "form-control" %>
+          <%= submit_tag "Search", class: "btn btn-primary" %>
+        <% end %>
+      </div>
 
-            <%= form_tag experiences_path, method: :get do %>
-              <button class="input-location-icon mr-sm-2" type="submit"><i class="fas fa-map-marker-alt"></i></button>
-              <%= search_field_tag :location,
-                params[:location],
-                class: "form-control mr-sm-2",
-                placeholder: "Location2"
-              %>
-            <% end %>
-
-          <!--  -->
-
-
-          <!-- Search bar for budget component-->
-          <%= form_tag experiences_path, method: :get do %>
-            <%= text_field_tag :budget,
-              params[:budget],
-              class: "form-control mr-sm-2",
-              placeholder: "Set your budget"
-            %>
-          <button class="pound-btn my-2 my-sm-0" type="submit"><i class="fas fa-pound-sign"></i></button>
-          <% end %>
-          <!--  -->
-
-        </form>
-        </div>
-        <div>
+      <div>
+        <div class="d-flex flex-row">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -120,21 +79,20 @@
                   <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-user-alt avatar-size"></i>
                   </a>
-                  <div class="dropdown-menu nav-links-drk" aria-labelledby="navbarDropdownMenuLink">
-                    <%= link_to 'Sign-in', user_session_path, class: "dropdown-item" %>
-                    <%= link_to 'Sign-up', new_user_registration_path, class: "dropdown-item" %>
-                  </div>
                 </li>
-              </div>
-              <div>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Host <span class="sr-only">(current)</span></a>
-                </li>
+                <div class="dropdown-menu nav-links-drk" aria-labelledby="navbarDropdownMenuLink">
+                  <%= link_to 'Sign-in', user_session_path, class: "dropdown-item" %>
+                  <%= link_to 'Sign-up', new_user_registration_path, class: "dropdown-item" %>
+                </div>
               </div>
             </ul>
           </div>
+            <div>
+              <%= link_to 'Host', new_user_session_path, class: "nav-link"%>
+            </div>
+          </div>
         </div>
-     </di>
+     </div>
   </nav>
 <%end%>
 
