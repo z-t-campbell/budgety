@@ -22,26 +22,27 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
-            <div  class= "nav-avatar">
               <li class="nav-item dropdown">
                 <% if current_user.photo.attached?%>
-                  <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <a class="nav-link  nav-item" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <%= cl_image_tag(current_user.photo.key, class: 'avatar-large')%>
                   </a>
                 <%else%>
-                  <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <a class="nav-link nav-item" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-user-alt avatar-size"></i>
                   </a>
                 <%end%>
-              </li>
-            </div>
-            <div class="dropdown-menu nav-links-drk" aria-labelledby="navbarDropdownMenuLink">
-              <%= link_to 'Account', root_path, class: "dropdown-item" %>
-              <%= link_to 'Bookings', orders_path, class: "dropdown-item" %>
-              <%= link_to 'Listings', new_organisation_path, class: "dropdown-item" %>
-              <%= link_to 'Listings', organisations_path, class: "dropdown-item" %>
-              <%= link_to 'Sign-out', destroy_user_session_path, method: :delete, class: "dropdown-item"%>
-            </div>
+              <div class="dropdown-menu nav-links-drk" aria-labelledby="navbarDropdownMenuLink">
+                <%= link_to 'Account', root_path, class: "dropdown-item" %>
+                <%= link_to 'Bookings', orders_path, class: "dropdown-item" %>
+                <% if current_user.organisations.empty?%>
+                    <%= link_to 'Listings', new_organisation_path, class: "dropdown-item" %>
+                <%else%>
+                    <%= link_to 'Listings', organisations_path, class: "dropdown-item" %>
+                <%end%>
+                <%= link_to 'Sign-out', destroy_user_session_path, method: :delete, class: "dropdown-item"%>
+              </div>
+            </li>
           </ul>
         </div>
         <div>
@@ -55,46 +56,49 @@
 
     <div class = "d-flex flex-row justify-content-between align-middle nav-items">
 
-      <div>
+      <div class = "">
         <%= link_to 'Budgety', root_path, class: "navbar-brand" %>
       </div>
 
       <div>
         <%= form_tag experiences_path, method: :get, class: "d-flex flex-row" do %>
-          <%= text_field_tag :location, nil, placeholder: 'Location..', class: "form-control" %>
-          <%= text_field_tag :budget, nil, placeholder: 'Your budget...', class: "form-control" %>
-          <%= submit_tag "Search", class: "btn btn-primary" %>
+           <%= text_field_tag :location, nil, placeholder: 'Location..', class: "form-control" %>
+           <%= text_field_tag :budget, nil, placeholder: 'Your budget...', class: "form-control" %>
+           <%= submit_tag "Search", class: "btn btn-primary" %>
         <% end %>
       </div>
 
       <div>
         <div class="d-flex flex-row">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-              <div  class= "nav-avatar">
-                <li class="nav-item dropdown">
-                  <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                  <a class="nav-link nav-item" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-user-alt avatar-size"></i>
                   </a>
-                </li>
-                <div class="dropdown-menu nav-links-drk" aria-labelledby="navbarDropdownMenuLink">
-                  <%= link_to 'Sign-in', user_session_path, class: "dropdown-item" %>
-                  <%= link_to 'Sign-up', new_user_registration_path, class: "dropdown-item" %>
-                </div>
+              <div class="dropdown-menu nav-links-drk" aria-labelledby="navbarDropdownMenuLink">
+                <%= link_to 'Sign-in', user_session_path, class: "dropdown-item" %>
+                <%= link_to 'Sign-up', new_user_registration_path, class: "dropdown-item" %>
               </div>
-            </ul>
-          </div>
-            <div>
-              <%= link_to 'Host', new_user_session_path, class: "nav-link"%>
-            </div>
-          </div>
+            </li>
+          </ul>
         </div>
-     </div>
+        <div>
+          <%= link_to 'Host', new_user_session_path, class: "nav-link "%>
+        </div>
+      </div>
+    </div>
   </nav>
-<%end%>
+
+  <%end%>
+
+
+
+
+
 
 
 

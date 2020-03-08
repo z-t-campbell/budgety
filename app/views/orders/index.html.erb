@@ -2,46 +2,44 @@
   <h1>Bookings</h1>
 </div>
 
-<div class="container">
-  <div class="row justify content-center">
-    <div class="col-6 col-lg-6 my-4 p-1">
-      <div class="card" style="width: 28rem;, height: 28rem;">
-        <div class="text-center">
-          <div class="card-body">
-            <%@orders.each do |order|%>
-              <ul>
-                <h1><%= order.experience.name%></h1>
-                <h4>Location: <%= order.experience.location%></h4>
-                <h5>Date: <%= order.experience.date.strftime('%d-%m-%Y') %></h5>
-                <h5>Start time: <%= order.experience.start_time.strftime('%H:%M') %></h5>
-                <h5>End time: <%= order.experience.end_time.strftime('%H:%M') %></h5>
-                <h5>Amount: <%= humanized_money_with_symbol(order.experience.price) %></h5>
-              </ul>
-              <% order.experience.photos.each do |photo| %>
-                <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill%>
+<% if @orders %>
+  <div class="container">
+    <div class="row justify content-center">
+      <div class="col-6 col-lg-6 my-4 p-1">
+        <div class="card" style="width: 28rem;, height: 28rem;">
+          <div class="text-center">
+            <div class="card-body">
+              <%@orders.each do |order|%>
+                  <h1><%= order.experience.name%></h1>
+                  <h4>Location: <%= order.experience.location%></h4>
+                  <h5>Date: <%= order.experience.date.strftime('%d-%m-%Y') %></h5>
+                  <h5>Start time: <%= order.experience.start_time.strftime('%H:%M') %></h5>
+                  <h5>End time: <%= order.experience.end_time.strftime('%H:%M') %></h5>
+                  <h5>Amount: <%= humanized_money_with_symbol(order.experience.price) %></h5>
+                  <% order.experience.photos.each do |photo| %>
+                    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill%>
+                  <%end%>
+                  <% if order.review %>
+                    <div>
+                      <%= order.review.try(:title) %>
+                    </div>
+                    <div>
+                      <%= order.review.try(:content) %>
+                    </div>
+                    <%order.review.rating.times do %>
+                       <i class="fas fa-star"></i>
+                    <%end%>
+                    <%else%>
+                      <%= link_to "Add a Review", new_order_review_path(order), :class => "btn btn-primary"%>
+                  <%end%>
               <%end%>
-              <% if order.review %>
-                <div>
-                 <%= order.review.try(:title) %>
-                </div>
-                <div>
-                 <%= order.review.try(:content) %>
-                </div>
-                <div>
-                  <p>
-                    <% order.review.rating.times do %>
-                      <i class="fas fa-star"></i>
-                    <% end %>
-                  </p>
-                </div>
-              <% else %>
-               <%= link_to "Add a Review", new_order_review_path(order), :class => "btn btn-primary"%>
-              <% end %>
-            <% end %>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+<%else%>
+ <h1><%= You have no bookings%></h1>
+<%end%>
 
