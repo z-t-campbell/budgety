@@ -12,6 +12,10 @@ class Experience < ApplicationRecord
   monetize :price_cents
 
 
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
+
+
   include PgSearch::Model
   pg_search_scope :search_by_location_and_category,
     against: [ :location, :category ],

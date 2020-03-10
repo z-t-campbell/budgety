@@ -5,14 +5,14 @@
         <div class="text-center">
   <div class="card-body">
     <div class="text-center">
-<h1><%= @experience.name%></h1>
-<p><%= @experience.description %>
-<h4>Venue: <%= @experience.venue_name%></h4>
-<h4>Location: <%= @experience.location%></h4>
-<h5>Date: <%= @experience.date.strftime('%d-%m-%Y') %></h5>
-<h5>Start time: <%= @experience.start_time.strftime('%H:%M') %></h5>
-<h5>End time: <%= @experience.end_time.strftime('%H:%M') %></h5>
-<p>Price: <%= humanized_money_with_symbol(@experience.price) %></p>
+        <h1><%= @experience.name%></h1>
+        <p><%= @experience.description %>
+        <h4>Venue: <%= @experience.venue_name%></h4>
+        <h4>Location: <%= @experience.location%></h4>
+        <h5>Date: <%= @experience.date.strftime('%d-%m-%Y') %></h5>
+        <h5>Start time: <%= @experience.start_time.strftime('%H:%M') %></h5>
+        <h5>End time: <%= @experience.end_time.strftime('%H:%M') %></h5>
+        <p>Price: <%= humanized_money_with_symbol(@experience.price) %></p>
 <div>
 <% @experience.photos.each do |photo| %>
 <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill%>
@@ -35,5 +35,17 @@
 </div>
 </div>
 </div>
+
+
+<div class="col-6 col-lg-6 my-2 pr-3">
+       <div
+             id="map"
+             style="width: 100%;
+             height: 642px;"
+             data-markers="<%= @markers.to_json %>"
+             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+             ></div>
+     </div>
+
 </div>
 
