@@ -14,6 +14,17 @@ class ExperiencesController < ApplicationController
     @budget = params[:name]
     @experiences = @experiences.where("category ILIKE ?", "%#{params[:date]}%") if params[:date].present?
     @budget = params[:date]
+
+    @experiences = Experience.geocoded #returns experiences with coordinates
+
+    @markers = @experiences.map do |experience|
+      {
+        lat: experience.latitude,
+        lng: experience.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { experience: experience }),
+        image_url: helpers.asset_url('icon-location.png')
+      }
+    end
   end
 
   def show
