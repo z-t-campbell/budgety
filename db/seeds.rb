@@ -14,7 +14,6 @@ require "open-uri"
 User.destroy_all
 Organisation.destroy_all
 Experience.destroy_all
-User.destroy_all
 
 puts "creating users"
 maria = User.create(email: "maria@cool.com", password: "123456", first_name: "Maria", last_name: "Stefan")
