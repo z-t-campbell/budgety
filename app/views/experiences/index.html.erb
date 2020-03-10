@@ -1,5 +1,17 @@
 <% if @experiences.any? %>
 
+  <div>
+    <%= form_tag experiences_path, method: :get, class: "d-flex flex-column" do %>
+      <% @categories.each do |category| %>
+        <div class="d-flex flex-row">
+          <%= check_box_tag "category[]", category%>
+          <%=label_tag category%>
+        </div>
+      <% end %>
+      <%= submit_tag "filter", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
   <div class= "cards-container d-flex flex-row  flex-wrap">
     <% @experiences.each do |experience| %>
       <%= link_to experience_path(experience) do %>
@@ -27,5 +39,6 @@
 <%else%>
    <h1> No results </h1>
 <%end%>
+
 
 

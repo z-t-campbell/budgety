@@ -14,6 +14,7 @@ class ExperiencesController < ApplicationController
     @budget = params[:name]
     @experiences = @experiences.where("category ILIKE ?", "%#{params[:date]}%") if params[:date].present?
     @budget = params[:date]
+    @categories = ["Arts, Theatre & Shows", "Comedy", "Food & Drink", "Beauty & Spa", "Health & Fitness", "Music Events", "Culture", "Learning", "Family", "Romantic", "Couples", "Groups", "Gift Ideas", "Educational", "Thrill Seeking"]
 
     @experiences = Experience.geocoded #returns experiences with coordinates
 
@@ -34,7 +35,7 @@ class ExperiencesController < ApplicationController
   def new
     @organisation = Organisation.find(params[:organisation_id])
     @experience = Experience.new
-    @categories = ["Arts, Theatre & Shows", "Comedy", "Food & Drink", "Beauty & Spa", "Health & Fitness", "Music Events", "Culture", "Learning", "Family", "Romantic", "Couples", "Groups", "Gift Ideas"]
+    @categories = ["Arts, Theatre & Shows", "Comedy", "Food & Drink", "Beauty & Spa", "Health & Fitness", "Music Events", "Culture", "Learning", "Family", "Romantic", "Couples", "Groups", "Gift Ideas", "Educational", "Thrill Seeking"]
   end
 
   def create
