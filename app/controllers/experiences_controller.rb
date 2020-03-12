@@ -17,19 +17,27 @@ class ExperiencesController < ApplicationController
     @categories = ["Arts, Theatre & Shows", "Comedy", "Food & Drink", "Beauty & Spa", "Health & Fitness", "Music Events", "Culture", "Learning", "Family", "Romantic", "Couples", "Groups", "Gift Ideas", "Educational", "Thrill Seeking", "Classes"]
 
     @experiences = Experience.geocoded #returns experiences with coordinates
-
     @markers = @experiences.map do |experience|
       {
         lat: experience.latitude,
         lng: experience.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { experience: experience }),
+        infoWindow: render_to_string(partial: "shared/info_window", locals: { experience: experience }),
         image_url: helpers.asset_url('icon-location.png')
       }
     end
   end
 
+
   def show
     @organisation = @experience.organisation
+    # raise
+    @markers = [{
+        lat: @experience.latitude,
+        lng: @experience.longitude,
+        infoWindow: render_to_string(partial: "shared/info_window", locals: { experience: @experience }),
+        image_url: helpers.asset_url('icon-location.png')
+      }]
+
   end
 
   def new
