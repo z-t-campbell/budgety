@@ -47,4 +47,21 @@
   top:0;
 }
 
+.cards {
+  grid-template-columns: 1fr 1fr 1fr;
+  flex-grow: 1;
+  display: grid;
+}
+
+.card-events {
+  width: 300px;
+  font-size: 12px;
+  margin-right:-37px;
+  margin-left:62px;
+  height:195px;
+}
+
+.card-events img {
+  max-width: 50%;
+}
 

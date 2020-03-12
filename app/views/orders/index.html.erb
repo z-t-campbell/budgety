@@ -19,14 +19,14 @@
                   <% order.experience.photos.each do |photo| %>
                     <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill%>
                   <%end%>
-                  <% if order.review %>
+                  <% if order.reviews.first %>
                     <div>
-                      <%= order.review.try(:title) %>
+                      <%= order.reviews.first.try(:title) %>
                     </div>
                     <div>
-                      <%= order.review.try(:content) %>
+                      <%= order.reviews.first.try(:content) %>
                     </div>
-                    <%order.review.rating.times do %>
+                    <%order.reviews.first.rating.times do %>
                        <i class="fas fa-star"></i>
                     <%end%>
                     <%else%>

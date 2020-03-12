@@ -14,6 +14,8 @@ require "open-uri"
 User.destroy_all
 Organisation.destroy_all
 Experience.destroy_all
+Review.destroy_all
+Order.destroy_all
 
 puts "creating users"
 maria = User.create(email: "maria@cool.com", password: "123456", first_name: "Maria", last_name: "Stefan")
@@ -73,3 +75,15 @@ end
   experience.save!
   "experiences created"
 end
+
+puts "creating Orders!"
+10.times do
+  Order.create!(
+    user: User.all.sample,
+    experience: Experience.all.sample,
+    state: "confirmed"
+  )
+end
+
+
+
