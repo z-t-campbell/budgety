@@ -7,6 +7,10 @@
           <%= check_box_tag "category[]", category%>
           <%=label_tag category%>
         </div>
+        <div>
+           <%= text_field_tag :location, nil, placeholder: 'Location..', class: "form-control" %>
+           <%= text_field_tag :budget, nil, placeholder: 'Your budget...', class: "form-control" %>
+        </div>
       <% end %>
       <%= submit_tag "filter", class: "btn btn-primary" %>
     <% end %>
