@@ -1,22 +1,29 @@
-<% if @experiences.any? %>
-
-  <div>
+<div>
     <%= form_tag experiences_path, method: :get, class: "d-flex flex-column" do %>
-      <% @categories.each do |category| %>
-        <div class="d-flex flex-row">
-          <%= check_box_tag "category[]", category%>
-          <%=label_tag category%>
-        </div>
-        <div>
-           <%= text_field_tag :location, nil, placeholder: 'Location..', class: "form-control" %>
-           <%= text_field_tag :budget, nil, placeholder: 'Your budget...', class: "form-control" %>
-        </div>
-      <% end %>
+     <label> Categories
+        <% @categories.each do |category| %>
+          <div class="d-flex flex-row">
+            <%= check_box_tag "category[]", category%>
+            <%=label_tag category%>
+          </div>
+        <% end %>
+      </label>
+      <div>
+        <%= text_field_tag :location, nil, placeholder: 'Location..', class: "form-control" %>
+        <%= text_field_tag :budget, nil, placeholder: 'Your budget...', class: "form-control" %>
+      </div>
+      <label> Ratings
+        <%= radio_button_tag 'rating', 5 %>
+        <%= radio_button_tag 'rating', 4 %>
+        <%= radio_button_tag 'rating', 3 %>
+        <%= radio_button_tag 'rating', 2 %>
+        <%= radio_button_tag 'rating', 1%>
+      </label>
       <%= submit_tag "filter", class: "btn btn-primary" %>
     <% end %>
   </div>
 
-
+<% if @experiences.any? %>
   <div class= "cards-container d-flex flex-row  flex-wrap">
     <% @experiences.each do |experience| %>
       <%= link_to experience_path(experience) do %>
@@ -46,28 +53,6 @@
 <%end%>
 
 
-<div class="col-6 col-lg-6 my-2 pr-3">
-  <div
-    id="map"
-    style="width: 100%;
-    height: 642px;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-    ></div>
-  </div>
-</div>
-
-
-    <div
-      id="map"
-      style="height: 100vh;
-      position: sticky;
-      top: 0;
-      width: 50%;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-    ></div>
-  </div>
 
 
 
