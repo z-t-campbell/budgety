@@ -54,14 +54,34 @@
 }
 
 .card-events {
-  width: 300px;
-  font-size: 12px;
-  margin-right:-37px;
-  margin-left:62px;
-  height:195px;
+    background-size: cover;
+  background-position: center;
+  height: 200px;
+  border-radius: 1px;
+  margin: 15px 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 25px;
+  color: white;
+  font-weight: bolder;
+  text-shadow: 0 0 10px rgba(0,0,0,0.7);
 }
 
-.card-events img {
-  max-width: 50%;
+.card-events h1 {
+  color: white;
+  font-family: 'Playfair Display', serif;
+  font-weight: bold;
+  text-align: center;
+  font-style: italic;
+  text-shadow:
+     2px  2px 0 #000,
+    -1px -1px 0 #000,
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
+     margin-top: 18px;
 }
+
 
