@@ -3,7 +3,7 @@
      <label> Categories
         <% @categories.each do |category| %>
           <div class="d-flex flex-row">
-            <%= check_box_tag "category[]", category%>
+            <%= check_box_tag "categoriesparam[]", category%>
             <%=label_tag category%>
           </div>
         <% end %>
@@ -40,7 +40,20 @@
             <p>Location: <%= experience.location %></p>
             <p>Host: <%= link_to experience.organisation.name, organisation_path(experience.organisation) %></p>
           <p class="card-price"><%= humanized_money_with_symbol(experience.price) %></p>
-          </div>
+          <%averagerating = 0%>
+          <%counter = 0%>
+          <%experience.organisation.experiences.each do |experience|%>
+             <%experience.reviews.each do |review|%>
+              <%counter += 1%>
+              <%averagerating += review.rating%>
+            <%end%>
+          <%end%>
+          <% rating = averagerating / counter %>
+          <%=rating%>
+          <%rating.times do %>
+            <i class="fas fa-star"></i>
+          <%end%>
+        </div>
           <div class= "category-card">
             <%= experience.category %>
           </div>

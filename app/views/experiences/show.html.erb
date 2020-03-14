@@ -37,6 +37,36 @@
   </div>
 </div>
 
+<%averagerating = 0%>
+<%counter = 0%>
+<%@experience.organisation.experiences.each do |experience|%>
+  <%experience.reviews.each do |review|%>
+    <%counter += 1%>
+    <%averagerating += review.rating%>
+  <%end%>
+<%end%>
+<% rating = averagerating / counter %>
+<div>
+  <%=rating%>
+  <%rating.times do %>
+    <i class="fas fa-star"></i>
+  <%end%>
+
+<%@experience.reviews.each do |review|%>
+  <p><%=review.title%></p>
+  <p><%=review.content%></p>
+  <% if review.user.photo.attached?%>
+    <%= cl_image_tag review.user.photo.key, class: 'avatar-large' %>
+  <%else%>
+    <%= cl_image_tag "https://res.cloudinary.com/dmwa29qvx/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1584042777/profil2_unizy0.jpg", class: 'avatar-large'%>
+  <%end%>
+ <p><%=review.user.first_name%></p>
+<%review.rating.times do %>
+    <i class="fas fa-star"></i>
+  <%end%>
+<%end%>
+</div>
+
 
 <div class="col-6 col-lg-6 my-2 pr-3">
        <div
