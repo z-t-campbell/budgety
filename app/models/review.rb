@@ -1,5 +1,6 @@
 class Review < ApplicationRecord
-  belongs_to :order
+  belongs_to :user
+  belongs_to :experience
   has_many_attached :photos
   validates :title, presence: true
   validates :content, presence: true
