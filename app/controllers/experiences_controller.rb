@@ -22,7 +22,6 @@ class ExperiencesController < ApplicationController
 
   def show
     @organisation = @experience.organisation
-    # raise
     @markers = [{
         lat: @experience.latitude,
         lng: @experience.longitude,

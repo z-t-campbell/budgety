@@ -5,9 +5,6 @@ class PagesController < ApplicationController
     @experiences = Experience.all
   end
 
-  def account
-  end
-
   def map
     @experiences = Experience.geocoded
 
