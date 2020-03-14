@@ -14,7 +14,11 @@
 </head>
   <body>
     <%= render 'shared/flashes'%>
-    <%= render 'shared/navbar' %>
+    <% if user_signed_in? %>
+      <%= render 'shared/navbar' %>
+    <% else %>
+      <%= render 'shared/minimal_navbar' %>
+    <% end %>
     <%= yield %>
 
     <%= javascript_include_tag 'application' %>

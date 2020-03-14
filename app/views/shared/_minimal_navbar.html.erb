@@ -1,0 +1,25 @@
+<header>
+    <div class="overlay"></div>
+      <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+        <source src="https://storage.googleapis.com/coverr-main/mp4/Cheering-Crowd.mp4" type="video/mp4">
+      </video>
+      <div class="container h-100">
+         <div class="d-flex h-100 text-center align-items-center">
+            <div class="link">
+                <%= link_to 'Budgety', root_path, class: "navbar-brand" %>
+            </div>
+
+          <div>
+            <%= form_tag experiences_path, method: :get, class: "d-flex flex-row" do %>
+              <%= text_field_tag :location, nil, placeholder: 'Location..', class: "form-control" %>
+              <%= text_field_tag :budget, nil, placeholder: 'Your budget...', class: "form-control" %>
+              <%= submit_tag "Search", class: "btn btn-primary" %>
+            <% end %>
+          </div>
+          <div class="w-100 text-white">
+            <h1 class="display-3">Budgety Experiences</h1>
+            <p class="display-4">Fun, local experiences in your budget</p>
+          </div>
+        </div>
+      </div>
+  </header>
