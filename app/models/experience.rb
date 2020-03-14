@@ -1,7 +1,7 @@
 class Experience < ApplicationRecord
   belongs_to :organisation
-  has_many :reviews
-  has_many :orders
+  has_many :reviews, dependent: :destroy 
+  has_many :orders, dependent: :destroy
   has_many_attached :photos
   validates :name, presence: true
   validates :description, presence: true
