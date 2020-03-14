@@ -3,30 +3,22 @@ class ExperiencesController < ApplicationController
   before_action :set_experience, only: [:show, :edit, :update, :destroy]
 
   def index
-    @experiences = Experience.all
-    @experiences = @experiences.where("location ILIKE ?", "%#{params[:location]}%") if params[:location].present?
-    @location = params[:location]
-    @experiences = @experiences.where("category ILIKE ?", "%#{params[:category]}%") if params[:category].present?
-    @category = params[:category]
-    @experiences = @experiences.where("price_cents <= ?", params[:budget].to_f*100) if params["budget"].present?
-    @budget = params[:budget]
-    @experiences = @experiences.where("category ILIKE ?", "%#{params[:name]}%") if params[:name].present?
-    @budget = params[:name]
-    @experiences = @experiences.where("category ILIKE ?", "%#{params[:date]}%") if params[:date].present?
-    @budget = params[:date]
-    @categories = ["Arts, Theatre & Shows", "Comedy", "Food & Drink", "Beauty & Spa", "Health & Fitness", "Music Events", "Culture", "Learning", "Family", "Romantic", "Couples", "Groups", "Gift Ideas", "Educational", "Thrill Seeking", "Classes"]
-
     @experiences = Experience.geocoded #returns experiences with coordinates
-    @markers = @experiences.map do |experience|
-      {
-        lat: experience.latitude,
-        lng: experience.longitude,
-        infoWindow: render_to_string(partial: "shared/info_window", locals: { experience: experience }),
-        image_url: helpers.asset_url('icon-location.png')
-      }
+    @experiences = @experiences.where("location ILIKE ?", "%#{params[:location]}%") if params[:location].present?
+    @experiences = @experiences.where("category ILIKE ?", "%#{params[:category]}%") if params[:category].present?
+    @experiences = @experiences.where("price_cents <= ?", params[:budget].to_f*100) if params[:budget].present?
+    @experiences = @experiences.where("rating ILIKE ?", "%#{params[:rating]}%") if params[:rating].present?
+    @categories = ["Arts, Theatre & Shows", "Comedy", "Food & Drink", "Beauty & Spa", "Music Events","Thrill Seeking", "Classes", "Date Ideas"]
+
+    if params[:categoriesparam].present?
+      @search = []
+      params[:categoriesparam].each do |category|
+        @search << @experiences.where("category ILIKE ?", "%#{category}%")
+      end
+      @experiences = @search.flatten
+
     end
   end
-
 
   def show
     @organisation = @experience.organisation
@@ -42,7 +34,7 @@ class ExperiencesController < ApplicationController
   def new
     @organisation = Organisation.find(params[:organisation_id])
     @experience = Experience.new
-    @categories = ["Arts, Theatre & Shows", "Comedy", "Food & Drink", "Beauty & Spa", "Health & Fitness", "Music Events", "Culture", "Learning", "Family", "Romantic", "Couples", "Groups", "Gift Ideas", "Educational", "Thrill Seeking", "Classes"]
+    @categories = ["Arts, Theatre & Shows", "Comedy", "Food & Drink", "Beauty & Spa", "Music Events","Thrill Seeking", "Classes"]
   end
 
   def create

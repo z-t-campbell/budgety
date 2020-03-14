@@ -13,10 +13,15 @@
 
 </head>
   <body>
+    <% if current_page?(root_path) && !user_signed_in? %>
+      <%= render 'shared/minimal_navbar' %>
+    <% else %>
+      <%= render 'shared/navbar' %>
+    <%end%>
     <%= render 'shared/flashes'%>
-    <%= render 'shared/navbar' %>
-    <%= yield %>
 
+
+    <%= yield %>
     <%= javascript_include_tag 'application' %>
 
     <%= javascript_pack_tag 'application' %>

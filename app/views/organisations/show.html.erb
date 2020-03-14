@@ -12,6 +12,11 @@
 <% if @organisation.photo.attached?%>
   <%= cl_image_tag @organsation.photo.key, height: 300, width: 400, crop: :fill%>
  <%end%>
+
+  <%=@organisation.rating%>
+  <%@organisation.rating.times do %>
+    <i class="fas fa-star"></i>
+  <%end%>
 <ul>
   <% @organisation.experiences.each do |experience|%>
   <li><%= link_to experience.name, experience_path(experience)%></li>

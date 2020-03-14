@@ -1,4 +1,3 @@
-<%  if user_signed_in?%>
   <nav class="navbar navbar-expand-lg nav-links-white navbar-bg">
 
     <div class = "d-flex flex-row justify-content-between align-middle nav-items">
@@ -9,7 +8,6 @@
 
       <div>
         <%= form_tag experiences_path, method: :get, class: "d-flex flex-row" do %>
-           <%= text_field_tag :location, nil, placeholder: 'Location..', class: "form-control" %>
            <%= text_field_tag :budget, nil, placeholder: 'Your budget...', class: "form-control" %>
            <%= submit_tag "Search", class: "btn btn-primary" %>
         <% end %>
@@ -23,7 +21,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
               <li class="nav-item dropdown">
-                <% if current_user.photo.attached?%>
+                <% if current_user && current_user.photo.attached?%>
                   <a class="nav-link  nav-item" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <%= cl_image_tag(current_user.photo.key, class: 'avatar-large')%>
                   </a>
@@ -35,7 +33,7 @@
               <div class="dropdown-menu nav-links-drk" aria-labelledby="navbarDropdownMenuLink">
                 <%= link_to 'Account', root_path, class: "dropdown-item" %>
                 <%= link_to 'Bookings', orders_path, class: "dropdown-item" %>
-                <% if current_user.organisations.empty?%>
+                <% if current_user && current_user.organisations.empty?%>
                     <%= link_to 'Listings', new_organisation_path, class: "dropdown-item" %>
                 <%else%>
                     <%= link_to 'Listings', organisations_path, class: "dropdown-item" %>
@@ -51,34 +49,6 @@
       </div>
     </div>
   </nav>
-<%else %>
-  <header>
-    <div class="overlay"></div>
-      <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-        <source src="https://storage.googleapis.com/coverr-main/mp4/Cheering-Crowd.mp4" type="video/mp4">
-      </video>
-      <div class="container h-100">
-         <div class="d-flex h-100 text-center align-items-center">
-            <div class="link">
-                <%= link_to 'Budgety', root_path, class: "navbar-brand" %>
-            </div>
-
-          <div>
-            <%= form_tag experiences_path, method: :get, class: "d-flex flex-row" do %>
-              <%= text_field_tag :location, nil, placeholder: 'Location..', class: "form-control" %>
-              <%= text_field_tag :budget, nil, placeholder: 'Your budget...', class: "form-control" %>
-              <%= submit_tag "Search", class: "btn btn-primary" %>
-            <% end %>
-          </div>
-          <div class="w-100 text-white">
-            <h1 class="display-3">Budgety Experiences</h1>
-            <p class="display-4">Fun, local experiences in your budget</p>
-          </div>
-        </div>
-      </div>
-  </header>
-  <%end%>
-
 
 
 
