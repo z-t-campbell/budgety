@@ -14,6 +14,8 @@ require "open-uri"
 User.destroy_all
 Organisation.destroy_all
 Experience.destroy_all
+Review.destroy_all
+Order.destroy_all
 
 puts "creating users"
 maria = User.create!(email: "maria@cool.com", password: "123456", first_name: "Maria", last_name: "Stefan")
@@ -277,3 +279,4 @@ experience27.photos.attach(io: photo, filename: 'Chelsea.jpg', content_type: 'im
 experience27.save!
 
 puts "experiences 27"
+

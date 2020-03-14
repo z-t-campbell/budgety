@@ -1,11 +1,8 @@
 <div class="container">
   <div class="row justify content-center">
     <div class="col-6 col-lg-6 my-4 p-1">
-
-
       <div class="card" style="width: 28rem;, height: 28rem;">
         <div class="text-center">
-
           <div class="card-body">
             <div class="text-center">
               <h1><%= @experience.name%></h1>
@@ -16,48 +13,41 @@
               <h5>Start time: <%= @experience.start_time.strftime('%H:%M') %></h5>
               <h5>End time: <%= @experience.end_time.strftime('%H:%M') %></h5>
               <p>Price: <%= humanized_money_with_symbol(@experience.price) %></p>
-
               <div>
-              <% @experience.photos.each do |photo| %>
+                <% @experience.photos.each do |photo| %>
                 <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill%>
                 <%end%>
               </div>
-
-              <p>Host: <%= link_to @organisation.name, organisation_path(@organisation)%></p>
-              <% if current_user && current_user.id == @organisation.user.id %>
+                <p>Host: <%= link_to @organisation.name, organisation_path(@organisation)%></p>
+                <% if current_user && current_user.id == @organisation.user.id %>
                 <%= link_to 'Delete', organisation_experience_path(@organisation), method: :delete, :class => "btn btn-primary"%>
                 <%= link_to 'Edit', edit_organisation_experience_path(@organisation), :class => "btn btn-primary"%>
-              <%else%>
+                <%else%>
                 <%= form_tag orders_path do |f| %>
                 <%= hidden_field_tag 'experience_id', @experience.id %>
-                  <%= select_tag :quantity, options_for_select(["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]) %>
-                  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+                <%= select_tag :quantity, options_for_select(["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]) %>
+                <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
                 <% end %>
-              <% end %>
-
+                <%end%>
             </div>
           </div>
-
         </div>
       </div>
-
-
     </div>
-
-
-    <div class="col-6 col-lg-6 my-2 pr-3">
-      <div
-        id="map"
-        style="width: 100%;
-        height: 642px;"
-        data-markers="<%= @markers.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-        ></div>
-      </div>
-    </div>
-
   </div>
 </div>
 
+
+<div class="col-6 col-lg-6 my-2 pr-3">
+       <div
+             id="map"
+             style="width: 100%;
+             height: 642px;"
+             data-markers="<%= @markers.to_json %>"
+             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+             ></div>
+     </div>
+
+</div>
 
 
