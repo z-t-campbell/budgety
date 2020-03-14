@@ -12,13 +12,6 @@
         <%= text_field_tag :location, nil, placeholder: 'Location..', class: "form-control" %>
         <%= text_field_tag :budget, nil, placeholder: 'Your budget...', class: "form-control" %>
       </div>
-      <label> Ratings
-        <%= radio_button_tag 'rating', 5 %>
-        <%= radio_button_tag 'rating', 4 %>
-        <%= radio_button_tag 'rating', 3 %>
-        <%= radio_button_tag 'rating', 2 %>
-        <%= radio_button_tag 'rating', 1%>
-      </label>
       <%= submit_tag "filter", class: "btn btn-primary" %>
     <% end %>
   </div>
