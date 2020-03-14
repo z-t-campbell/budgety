@@ -15,6 +15,10 @@
   width: 40px;
 }
 
+.navbar-brand {
+  display: flex;
+}
+
 .nav-links-white a {
   color: white;
 }
@@ -70,4 +74,11 @@
 
 body {
   background-color: white;
+}
+
+.navbar-link {
+margin-left: -84px;
+}
+.navbar-details {
+  margin-right: 20px;
 }
