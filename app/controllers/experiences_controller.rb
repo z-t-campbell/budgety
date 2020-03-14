@@ -19,9 +19,9 @@ class ExperiencesController < ApplicationController
     @categories = ["Arts, Theatre & Shows", "Comedy", "Food & Drink", "Beauty & Spa", "Music Events","Thrill Seeking", "Classes", "Date Ideas"]
 
 
-    if params[:category].present?
+    if params[:categoriesparam].present?
       @search = []
-      params[:category].each do |category|
+      params[:categoriesparam].each do |category|
         @search << @experiences.where("category ILIKE ?", "%#{category}%")
       end
       @experiences = @search.flatten
