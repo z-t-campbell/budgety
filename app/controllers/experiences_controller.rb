@@ -6,7 +6,7 @@ class ExperiencesController < ApplicationController
     @experiences = Experience.geocoded #returns experiences with coordinates
     @experiences = @experiences.where("location ILIKE ?", "%#{params[:location]}%") if params[:location].present?
     @location = params[:location]
-
+    @experiences = @experiences.where("location ILIKE ?", "%#{params[:category]}%") if params[:category].present?
     @category = params[:category]
     @experiences = @experiences.where("price_cents <= ?", params[:budget].to_f*100) if params[:budget].present?
     @budget = params[:budget]
@@ -18,7 +18,6 @@ class ExperiencesController < ApplicationController
 
     @categories = ["Arts, Theatre & Shows", "Comedy", "Food & Drink", "Beauty & Spa", "Music Events","Thrill Seeking", "Classes", "Date Ideas"]
 
-
     if params[:categoriesparam].present?
       @search = []
       params[:categoriesparam].each do |category|
@@ -26,10 +25,8 @@ class ExperiencesController < ApplicationController
       end
       @experiences = @search.flatten
 
-
     end
   end
-
 
   def show
     @organisation = @experience.organisation
