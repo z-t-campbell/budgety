@@ -1,12 +1,16 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: :home
+  skip_before_action :authenticate_user!, only: [:home, :map]
 
   def home
     @experiences = Experience.all
+  end
 
-raise
+  def account
+  end
 
-    # @experiences = Experience.geocoded #returns experiences with coordinates
+  def map
+    @experiences = Experience.geocoded
+
     @markers = @experiences.map do |experience|
       {
         lat: experience.latitude,
@@ -15,9 +19,5 @@ raise
         image_url: helpers.asset_url('icon-location.png')
       }
     end
-
-  end
-
-  def account
   end
 end

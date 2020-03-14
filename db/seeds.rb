@@ -277,3 +277,29 @@ experience27.photos.attach(io: photo, filename: 'Chelsea.jpg', content_type: 'im
 experience27.save!
 
 puts "experiences 27"
+
+puts "creating Orders!"
+40.times do
+  Order.create!(
+    user: james,
+    experience: Experience.all.sample,
+    state: "confirmed"
+  )
+end
+
+
+
+puts "creating reviews!"
+
+orders = Order.all
+ratings = [2, 3, 4, 5]
+
+orders.each do |order|
+ Review.create(
+   experience: order.experience,
+   user: order.user,
+   rating: ratings.sample,
+   title: "Best experience",
+   content:"Fabulous time, dont hesitate to book"
+  )
+end

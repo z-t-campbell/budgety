@@ -2,14 +2,14 @@
   <h1>Bookings</h1>
 </div>
 
-<% if @orders %>
+<% if current_user.orders.any?%>
   <div class="container">
     <div class="row justify content-center">
       <div class="col-6 col-lg-6 my-4 p-1">
         <div class="card" style="width: 28rem;, height: 28rem;">
           <div class="text-center">
             <div class="card-body">
-              <%@orders.each do |order|%>
+              <%current_user.orders.each do |order|%>
                   <h1><%= order.experience.name%></h1>
                   <h4>Location: <%= order.experience.location%></h4>
                   <h5>Date: <%= order.experience.date.strftime('%d-%m-%Y') %></h5>
@@ -19,17 +19,22 @@
                   <% order.experience.photos.each do |photo| %>
                     <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill%>
                   <%end%>
-                  <% if order.review %>
+                  <% if order.experience.reviews.any? %>
                     <div>
-                      <%= order.review.try(:title) %>
+                      <% review = order.experience.reviews.last%>
+                          <p><%=review.title%></p>
+                          <p><%=review.content%></p>
+                          <% if review.user.photo.attached?%>
+                            <%= cl_image_tag review.user.photo.key, class: 'avatar-large' %>
+                          <%else%>
+                           <%= cl_image_tag "https://res.cloudinary.com/dmwa29qvx/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1584042777/profil2_unizy0.jpg", class: 'avatar-large'%>
+                          <%end%>
+                          <p><%=review.user.first_name%></p>
+                          <%review.rating.times do %>
+                             <i class="fas fa-star"></i>
+                          <%end%>
                     </div>
-                    <div>
-                      <%= order.review.try(:content) %>
-                    </div>
-                    <%order.review.rating.times do %>
-                       <i class="fas fa-star"></i>
-                    <%end%>
-                    <%else%>
+                  <%else%>
                       <%= link_to "Add a Review", new_order_review_path(order), :class => "btn btn-primary"%>
                   <%end%>
               <%end%>
@@ -39,6 +44,7 @@
       </div>
     </div>
   </div>
+
 <%else%>
  <h1><%= You have no bookings%></h1>
 <%end%>
