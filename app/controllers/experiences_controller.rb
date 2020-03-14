@@ -16,7 +16,7 @@ class ExperiencesController < ApplicationController
     @budget = params[:date]
     @experiences = @experiences.where("category ILIKE ?", "%#{params[:rating]}%") if params[:rating].present?
 
-    @categories = ["Arts, Theatre & Shows", "Comedy", "Food & Drink", "Beauty & Spa", "Music Events","Thrill Seeking", "Classes"]
+    @categories = ["Arts, Theatre & Shows", "Comedy", "Food & Drink", "Beauty & Spa", "Music Events","Thrill Seeking", "Classes", "Date Ideas"]
 
 
     if params[:category].present?
@@ -25,6 +25,7 @@ class ExperiencesController < ApplicationController
         @search << @experiences.where("category ILIKE ?", "%#{category}%")
       end
       @experiences = @search.flatten
+
 
     end
   end
