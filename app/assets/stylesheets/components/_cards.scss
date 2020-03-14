@@ -48,3 +48,104 @@
 }
 
 
+
+// /////////////////////////
+
+
+/******* Card Experience here *********/
+.card-experience-show {
+  overflow: hidden;
+  height: 100%;
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 10px;
+  margin: 20px;
+  margin-left: 70px;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+}
+
+.box1 {
+  width: 100%;
+}
+
+
+.card-experience-show-photo {
+  height: 80%;
+  width: 100%;
+  margin-bottom: 15px;
+  object-fit: cover;
+}
+
+.card-experience-show-price {
+  margin-top: 0px;
+  font-size: 20px;
+  font-weight: bold;
+  width: 150px;
+  margin: 3px 10px;
+}
+
+.card-experience-show-actions {
+  text-align: center;
+  font-size: 14px;
+  margin: 5px 5px;
+}
+
+.card-experience-category {
+  color: white;
+  background: #FD0F15;
+  opacity: 0.6;
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 5px 10px;
+  border-radius: 2px;
+  font-size: 10px;
+}
+
+.card-experience-show-title {
+  font-size: 30px;
+  font-weight: bold;
+  padding: 5px 10px;
+}
+
+.card-experience-show-info {
+  font-size: 14px;
+  opacity: .5;
+
+  margin: 5px 10px;
+}
+
+.experience-time {
+  display: flex;
+  margin-left: 2px;
+}
+
+.experience-location {
+  display: flex;
+  margin-left: 2px;
+}
+
+/******* Card Map here *********/
+
+#map {
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 0px;
+  margin-top: 20px;
+  margin-right: 70px;
+  width: 100%;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+
+
+/******* Icon here *********/
+
+.icon {
+  margin-right: 15px;
+  opacity: 0.6;
+}
+

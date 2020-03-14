@@ -4,7 +4,6 @@ class PagesController < ApplicationController
   def home
     @experiences = Experience.all
 
-raise
 
     # @experiences = Experience.geocoded #returns experiences with coordinates
     @markers = @experiences.map do |experience|
