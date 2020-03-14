@@ -14,7 +14,7 @@ class ExperiencesController < ApplicationController
     @budget = params[:name]
     @experiences = @experiences.where("category ILIKE ?", "%#{params[:date]}%") if params[:date].present?
     @budget = params[:date]
-    @categories = ["Arts, Theatre & Shows", "Comedy", "Food & Drink", "Beauty & Spa", "Health & Fitness", "Music Events", "Culture", "Learning", "Family", "Romantic", "Couples", "Groups", "Gift Ideas", "Educational", "Thrill Seeking", "Classes"]
+    @categories = ["Arts, Theatre & Shows", "Comedy", "Food & Drink", "Beauty & Spa", "Health & Fitness", "Music Events", "Culture", "Learning", "Family", "Romantic", "Couples", "Groups", "Date Ideas", "Educational", "Thrill Seeking", "Classes"]
 
     @experiences = Experience.geocoded #returns experiences with coordinates
     @markers = @experiences.map do |experience|
