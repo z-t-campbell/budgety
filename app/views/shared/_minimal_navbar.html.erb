@@ -1,25 +1,37 @@
 <header>
-    <div class="overlay"></div>
-      <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-        <source src="https://storage.googleapis.com/coverr-main/mp4/Cheering-Crowd.mp4" type="video/mp4">
-      </video>
-      <div class="container h-100">
-            <div class="navbar-brand">
-              <%= link_to 'Budgety', root_path, class: "navbar-link" %>
-              <div>
-                <%= form_tag experiences_path, method: :get, class: "d-flex flex-row navbar-details" do %>
 
-                  <%= text_field_tag :budget, nil, placeholder: 'Your budget...', class: "form-control" %>
-                  <%= submit_tag "Search", class: "btn btn-danger" %>
-                <% end %>
-              </div>
-            </div>
+  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+    <source src="https://storage.googleapis.com/coverr-main/mp4/Cheering-Crowd.mp4" type="video/mp4">
+  </video>
 
-         <div class="d-flex h-100 text-center align-items-center">
-          <div class="w-100 text-white">
-            <h1 class="display-3">Budgety Experiences</h1>
-            <p class="display-4">Fun, local experiences in your budget</p>
-          </div>
+  <div class=" w-100 container d-flex flex-row justify-content-between ">
+      <div class = "d-flex flex-row">
+          <%= link_to 'B', root_path, class: "navbar-brand" %>
+      <%= form_tag experiences_path, method: :get, class: "d-flex flex-row navbar-details" do %>
+        <%= text_field_tag :budget, nil, placeholder: 'Your budget...', class: "form-control" %>
+        <%= submit_tag "Search", class: "btn btn-danger" %>
+      <% end %>
+    </div>
+      <div class = "d-flex flex-row">
+        <div>
+          <%= link_to 'Sign-in', new_user_session_path%>
+        </div>
+        <di>
+          <%= link_to 'Sign-up', new_user_registration_path%>
         </div>
       </div>
-  </header>
+  </div>
+
+  </div>
+  <div class="container h-100">
+    <div class="d-flex h-100 text-center align-items-center">
+      <div class="w-100 text-white tagline">
+        <h1 class="tagline">Budgety</h1>
+        <p class="lead mb-0">Fun, local experiences within your budget</p>
+      </div>
+    </div>
+  </div>
+
+</header>
+
+

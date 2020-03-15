@@ -1,3 +1,35 @@
+.category-container {
+  margin-top: 10px;
+
+}
+
+.category {
+  border-radius: 6px;
+  position: relative;
+  height: 150px;
+  width: 220px;
+  margin: 5px 5px;
+  background-size: cover;
+  background-position: center;
+}
+
+.category img {
+  height: 150px;
+  width: 220px;
+  border-radius: 12px;
+}
+.category h1 {
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  right: 5px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+
 .cards-container {
   width: 1100px;
   margin: 0 auto;
@@ -90,6 +122,14 @@
     -1px  1px 0 #000,
      1px  1px 0 #000;
      margin-top: 18px;
+}
+
+.heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  margin-top: 20px;
+  margin-left: 8px;
+  padding: 10px 10px;
 }
 
 

@@ -1,3 +1,15 @@
+.tagline h1 {
+  font-size: 50px;
+}
+
+.tagline p {
+  font-size: 30px;
+}
+
+
+.form-and-logo {
+  margin: 0;
+}
 
 .navbar-bg {
 
@@ -17,6 +29,15 @@
 
 .navbar-brand {
   display: flex;
+}
+
+.navbar-brand  {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 40px;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links-white a {
