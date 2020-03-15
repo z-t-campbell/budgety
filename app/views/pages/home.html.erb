@@ -58,7 +58,7 @@
           <%end%>
 
             <p><%=experience.date.strftime("%a %d %b") %>, <%= experience.start_time.strftime('%H:%M%p')%></p>
-            <p>Location: <%= experience.location %></p>
+            <p><i class="fas fa-map-marker-alt text-danger icon"></i><%= experience.venue_name %>, <%= experience.location.split(",").first %></p>
             <p>Host: <%= link_to experience.organisation.name, organisation_path(experience.organisation) %></p>
           <p class="card-price"><%= humanized_money_with_symbol(experience.price) %></p>
           </div>
