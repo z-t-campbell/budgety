@@ -57,7 +57,7 @@
           <%end%>
           <%end%>
 
-            <p> Date: <%=experience.date.strftime("%d-%m-%Y") %>  Time: <%= experience.start_time.strftime('%H:%M') %> - <%= experience.end_time.strftime('%H:%M')%></p>
+            <p><%=experience.date.strftime("%a %d %b") %>, <%= experience.start_time.strftime('%H:%M%p')%></p>
             <p>Location: <%= experience.location %></p>
             <p>Host: <%= link_to experience.organisation.name, organisation_path(experience.organisation) %></p>
           <p class="card-price"><%= humanized_money_with_symbol(experience.price) %></p>
