@@ -150,7 +150,6 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-
 }
 
 .box1 {
@@ -213,6 +212,51 @@
   margin-left: 2px;
 }
 
+/******* Icon here *********/
+
+.icon {
+  margin-right: 15px;
+  opacity: 0.6;
+}
+
+
+/******* Experience rating here *********/
+.experience-rating {
+  height: 100%;
+  padding: 10px;
+  margin: 30px;
+  margin-left: 70px;
+  width: 90%;
+  display: flex;
+  align-items: flex-start;
+}
+
+.rating-box1 h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+.rating-reviewer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.rating-reviewer p {
+  margin: 10px 5px 10px 10px;
+}
+
+
+.rating-box2 {
+  margin-left: 100px;
+}
+
+.rating-info{
+  font-size: 12px;
+  opacity: 0.7;
+  margin-top: 10px;
+}
+
 /******* Card Map here *********/
 
 #map {
@@ -227,10 +271,5 @@
 
 
 
-/******* Icon here *********/
 
-.icon {
-  margin-right: 15px;
-  opacity: 0.6;
-}
 
