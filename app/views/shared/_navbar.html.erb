@@ -1,9 +1,10 @@
-  <nav class="navbar navbar-expand-lg nav-links-white navbar-bg">
+<nav class="navbar navbar-expand-lg nav-links-white navbar-bg">
 
-    <div class = "d-flex flex-row justify-content-between align-middle nav-items">
+  <div class = "d-flex flex-row justify-content-between align-middle nav-items">
 
-      <div class = "">
-        <%= link_to 'Budgety', root_path, class: "navbar-brand" %>
+    <div class="d-flex flex-row  justify-content-start">
+      <div>
+        <%= link_to 'B', root_path, class: "navbar-brand" %>
       </div>
 
       <div>
@@ -12,43 +13,48 @@
            <%= submit_tag "Search", class: "btn btn-danger" %>
         <% end %>
       </div>
+    </div>
 
       <div>
         <div class="d-flex flex-row">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-              <li class="nav-item dropdown">
-                <% if current_user && current_user.photo.attached?%>
-                  <a class="nav-link  nav-item" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <%= cl_image_tag(current_user.photo.key, class: 'avatar-large')%>
-                  </a>
-                <%else%>
-                  <a class="nav-link nav-item" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-user-alt avatar-size"></i>
-                  </a>
-                <%end%>
-              <div class="dropdown-menu nav-links-drk" aria-labelledby="navbarDropdownMenuLink">
-                <%= link_to 'Account', root_path, class: "dropdown-item" %>
-                <%= link_to 'Bookings', orders_path, class: "dropdown-item" %>
-                <% if current_user && current_user.organisations.empty?%>
-                    <%= link_to 'Listings', new_organisation_path, class: "dropdown-item" %>
-                <%else%>
-                    <%= link_to 'Listings', organisations_path, class: "dropdown-item" %>
-                <%end%>
-                <%= link_to 'Sign-out', destroy_user_session_path, method: :delete, class: "dropdown-item"%>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <%= link_to 'Host', new_organisation_path, class: "nav-link "%>
-        </div>
+          <div>
+            <%= link_to 'Book an Experience', new_organisation_path, class: "nav-link "%>
+          </div>
+          <div>
+            <%= link_to 'Book an Experience', new_organisation_path, class: "nav-link "%>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                  <% if current_user && current_user.photo.attached?%>
+                    <a class="nav-link  nav-item" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <%= cl_image_tag(current_user.photo.key, class: 'avatar-large')%>
+                    </a>
+                  <%else%>
+                    <a class="nav-link nav-item" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <%= cl_image_tag "https://res.cloudinary.com/dmwa29qvx/image/upload/v1584042777/profil2_unizy0.jpg",  class: 'avatar-large'%>
+                    </a>
+                  <%end%>
+
+                <div class="dropdown-menu nav-links-drk" aria-labelledby="navbarDropdownMenuLink">
+                  <%= link_to 'Account', root_path, class: "dropdown-item" %>
+                  <%= link_to 'Bookings', orders_path, class: "dropdown-item" %>
+                  <% if current_user && current_user.organisations.empty?%>
+                      <%= link_to 'Listings', new_organisation_path, class: "dropdown-item" %>
+                  <%else%>
+                      <%= link_to 'Listings', organisations_path, class: "dropdown-item" %>
+                  <%end%>
+                  <%= link_to 'Sign-out', destroy_user_session_path, method: :delete, class: "dropdown-item"%>
+                </div>
+              </li>
+            </ul>
+          </div>
       </div>
     </div>
-  </nav>
+</nav>
 
 
 
