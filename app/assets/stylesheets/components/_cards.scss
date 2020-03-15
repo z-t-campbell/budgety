@@ -13,11 +13,17 @@
   width: 300px;
   font-size: 12px;
   margin-right:25px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .card-experience img {
   width: 300px;
   height: 200px;
+  padding-right: 20px;
+  padding-top: 10px;
 }
 
 .card-experience h2 {
@@ -31,20 +37,21 @@
 }
 
 .card-price {
-  color:#188FA7;
+  color:black;
   font-size: 40px;
   font-weight: bold;
+  text-align: right;
 }
 
 .category-card {
   color: white;
-  background: #1C448E;
+  background: #FF0505;
   display: inline-block;
   padding: 5px 10px;
   border-radius: 4px;
   font-weight: bold;
   position: absolute;
-  top:0;
+  top:10px;
 }
 
 .cards {
