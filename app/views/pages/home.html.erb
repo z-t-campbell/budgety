@@ -51,10 +51,10 @@
             <%end%>
           <%end%>
           <% rating = averagerating / counter %>
-          <%= rating %>
-          <%rating.times do %>
-            <i class="fas fa-star"></i>
-          <%end%>
+          <p><%rating.times do %>
+              <i class="fas fa-star-of-life"></i>
+            <%end%>(<%= counter%>)
+          </p>
           <%end%>
 
             <p><%=experience.date.strftime("%a %d %b") %>, <%= experience.start_time.strftime('%H:%M%p')%></p>
