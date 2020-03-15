@@ -14,7 +14,7 @@
               <h5>Start time: <%= @order.experience.start_time.strftime('%H:%M') %></h5>
               <h5>End time: <%= @order.experience.end_time.strftime('%H:%M') %></h5>
               <p>Purchase of <strong><%= @order.experience.name %></strong> for <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
-              <button id="pay" class="btn btn-primary btn-block">Pay</button>
+              <button id="pay" class="btn btn-danger btn-block">Pay</button>
               <script src="https://js.stripe.com/v3/"></script>
               <script>
               const paymentButton = document.getElementById('pay');
