@@ -42,16 +42,15 @@
       </div>
     </div>
 
+    <% if @experience.reviews.any?%>
     <div class="experience-rating">
       <div class="rating-box1">
         <h2> Guest reviews </h2>
         <%averagerating = 0%>
         <%counter = 0%>
-        <%@experience.organisation.experiences.each do |experience|%>
-          <%experience.reviews.each do |review|%>
+        <%@experience.reviews.each do |review|%>
           <%counter += 1%>
           <%averagerating += review.rating%>
-          <%end%>
         <%end%>
         <% rating = averagerating / counter %>
         <%=rating%>
@@ -59,6 +58,7 @@
           <i class="fas fa-star"></i>
         <%end%>
       </div>
+      <%end%>
 
       <div class="rating-box2">
 
