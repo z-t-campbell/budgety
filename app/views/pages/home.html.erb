@@ -40,22 +40,26 @@
             <%= image_tag 'default-image.png'%>
           <%end%>
           <div>
-            <h2 class="text-capitalize"><%= link_to experience.name, experience_path(experience) %></h2>
-            <% if experience.organisation.experiences.any?%>
-            <%averagerating = 0%>
+          <h2 class="text-capitalize"><%= link_to experience.name, experience_path(experience) %></h2>
+
+          <%organisation = experience.organisation%>
+          <% if organisation.experiences.each do |experience|%>
+            <%experience.reviews.any?%>
+          <%end%>
+            <%rating = 0%>
             <%counter = 0%>
-            <%experience.organisation.experiences.each do |experience|%>
-             <%experience.reviews.each do |review|%>
-              <%counter += 1%>
-              <%averagerating += review.rating%>
+            <% organisation.experiences.each do |experience|%>
+              <%experience.reviews.each do |review|%>
+                <%counter += 1%>
+                <%rating += review.rating%>
+              <%end%>
             <%end%>
+            <% rating /= counter %>
+            <%rating.times do %>
+              <i class="fas fa-star"></i>
+            <%end%>(<%= counter %>)
           <%end%>
-          <% rating = averagerating / counter %>
-          <%= rating %>
-          <%rating.times do %>
-            <i class="fas fa-star"></i>
-          <%end%>
-          <%end%>
+
             <p> Date: <%=experience.date.strftime("%d-%m-%Y") %>  Time: <%= experience.start_time.strftime('%H:%M') %> - <%= experience.end_time.strftime('%H:%M')%></p>
             <p>Location: <%= experience.location %></p>
             <p>Host: <%= link_to experience.organisation.name, organisation_path(experience.organisation) %></p>

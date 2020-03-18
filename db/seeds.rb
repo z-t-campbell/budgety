@@ -14,6 +14,8 @@ require "open-uri"
 User.destroy_all
 Organisation.destroy_all
 Experience.destroy_all
+Order.destroy_all
+Review.destroy_all
 
 puts "creating users"
 maria = User.create!(email: "maria@cool.com", password: "123456", first_name: "Maria", last_name: "Stefan")
@@ -296,10 +298,9 @@ ratings = [2, 3, 4, 5]
 
 orders.each do |order|
  Review.create(
-   experience: order.experience,
-   user: order.user,
    rating: ratings.sample,
-   title: "Best experience",
-   content:"Fabulous time, dont hesitate to book"
+   title: "The best experience",
+   content:"We had a fabulous time, honestly dont hesitate to book",
+   order: order
   )
 end
