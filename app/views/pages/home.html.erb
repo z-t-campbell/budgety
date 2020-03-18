@@ -41,21 +41,23 @@
           <%end%>
           <div>
           <h2 class="text-capitalize"><%= link_to experience.name, experience_path(experience) %></h2>
-          <%organisation = experience.organisation%>
 
-          <% if experience.reviews.any?%>
-              <%rating = 0%>
-              <%counter = 0%>
+          <%organisation = experience.organisation%>
+          <% if organisation.experiences.each do |experience|%>
+            <%experience.reviews.any?%>
+          <%end%>
+            <%rating = 0%>
+            <%counter = 0%>
+            <% organisation.experiences.each do |experience|%>
               <%experience.reviews.each do |review|%>
                 <%counter += 1%>
                 <%rating += review.rating%>
               <%end%>
-              <% rating /= counter %>
-              <%= rating %>
-              <%rating.times do %>
-                <i class="fas fa-star"></i>
-              <%end%>
-
+            <%end%>
+            <% rating /= counter %>
+            <%rating.times do %>
+              <i class="fas fa-star"></i>
+            <%end%>(<%= counter %>)
           <%end%>
 
             <p> Date: <%=experience.date.strftime("%d-%m-%Y") %>  Time: <%= experience.start_time.strftime('%H:%M') %> - <%= experience.end_time.strftime('%H:%M')%></p>

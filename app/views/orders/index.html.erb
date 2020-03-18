@@ -19,17 +19,17 @@
                   <% order.experience.photos.each do |photo| %>
                     <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill%>
                   <%end%>
-                  <% if order.experience.reviews.any? %>
+                  <% if order.review.present? %>
                     <div>
-                      <% review = order.experience.reviews.last%>
+                      <% review = order.review%>
                           <p><%=review.title%></p>
                           <p><%=review.content%></p>
-                          <% if review.user.photo.attached?%>
+                          <% if review.order.user.photo.attached?%>
                             <%= cl_image_tag review.user.photo.key, class: 'avatar-large' %>
                           <%else%>
                            <%= cl_image_tag "https://res.cloudinary.com/dmwa29qvx/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1584042777/profil2_unizy0.jpg", class: 'avatar-large'%>
                           <%end%>
-                          <p><%=review.user.first_name%></p>
+                          <p><%=review.order.user.first_name%></p>
                           <%review.rating.times do %>
                              <i class="fas fa-star"></i>
                           <%end%>
@@ -46,5 +46,5 @@
   </div>
 
 <%else%>
- <h1> You have no bookings</h1>
+ <h1> You have no bookings </h1>
 <%end%>
