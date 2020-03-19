@@ -280,7 +280,33 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+/******** Card Payment here ******/
 
+.card-payment {
+  overflow: hidden;
+  height: 100%;
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 80px;
+  margin: 20px;
+  margin-left: 295px;
+  width: 75%;
+  padding-bottom: 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.card-payment-title {
+  font-size: 30px;
+  font-weight: bold;
+  padding: 5px 10px;
+  text-align: center;
+}
+.card-payment-box {
+  width: 100%;
+  margin-top: -46px;
+}
 
 
 

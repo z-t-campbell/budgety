@@ -1,7 +1,8 @@
-<div class="container">
-  <div class="row py-4">
-    <div class="col">
-     <small><span class="badge badge-primary"><h5><%= @order.state %></h4></span></small>
+ <div class="d-flex align-items-start">
+    <div class="col-md-6 col-lg-8">
+      <div class="card-payment">
+        <div class="card-payment-box">
+     <small><span class="badge badge-danger"><h5><%= @order.state %></h4></span></small>
       <ul class="list-unstyled">
         <li><strong>ISSUED ON</strong> <%= @order.created_at.to_date.strftime('%d-%m-%Y') %></li>
         <li><strong>EXPERIENCE</strong> <%= @order.experience.name %></li>
@@ -12,3 +13,17 @@
     </div>
   </div>
 </div>
+
+ <div class="d-flex align-items-start">
+    <div class="col-md-6 col-lg-8">
+      <div class="card-payment">
+        <div class="card-payment-box">
+          <h1 class="card-payment-title"><%= @order.experience.name%></h2>
+            <div><%= cl_image_tag @order.experience.photos.first.key, width: '100%', class: "card-experience-show-photo" %></div>
+              <div class="card-experience-show-info">
+                <p><i class="fas fa-map-marker-alt text-danger icon"></i>Venue: <%= @order.experience.venue_name%></p>
+                <h4>Location: <%= @order.experience.location%></h4>
+                <p><i class="far fa-calendar-alt text-danger icon"></i>Date: <%= @order.experience.date.strftime('%d-%m-%Y') %></p>
+                <p><i class="fas fa-hourglass-start text-danger icon"></i>Start time: <%= @order.experience.start_time.strftime('%H:%M') %></p>
+                <p>End time: <%= @order.experience.end_time.strftime('%H:%M') %></h5>
+                <p>Purchase of <strong><%= @order.experience.name %></strong> for <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
