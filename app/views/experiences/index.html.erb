@@ -33,21 +33,23 @@
             <%end%>
             <div>
               <h2 class="text-capitalize"><%= link_to experience.name, experience_path(experience) %></h2>
-              <% if experience.organisation.experiences.any?%>
-              <%averagerating = 0%>
-              <%counter = 0%>
-              <%experience.organisation.experiences.each do |experience|%>
-               <%experience.reviews.each do |review|%>
-                <%counter += 1%>
-                <%averagerating += review.rating%>
+              <%organisation = experience.organisation%>
+              <% if organisation.experiences.each do |experience|%>
+                <%experience.reviews.any?%>
               <%end%>
-            <%end%>
-            <% rating = averagerating / counter %>
-            <p><%rating.times do %>
-                <i class="fas fa-star-of-life"></i>
-              <%end%>(<%= counter%>)
-            </p>
-            <%end%>
+                <%rating = 0%>
+                <%counter = 0%>
+                <% organisation.experiences.each do |experience|%>
+                  <%experience.reviews.each do |review|%>
+                    <%counter += 1%>
+                    <%rating += review.rating%>
+                  <%end%>
+                <%end%>
+                <% rating /= counter %>
+                <%rating.times do %>
+                  <i class="fas fa-star"></i>
+                <%end%>(<%= counter %>)
+              <%end%>
 
               <p><%=experience.date.strftime("%a %d %b") %>, <%= experience.start_time.strftime('%H:%M%p')%></p>
               <p><i class="fas fa-map-marker-alt text-danger icon"></i><%= experience.venue_name %>, <%= experience.location.split(",").first %></p>
