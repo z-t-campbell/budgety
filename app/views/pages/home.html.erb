@@ -34,6 +34,7 @@
           <%end%>
           <div>
           <h2 class="text-capitalize"><%= link_to experience.name, experience_path(experience) %></h2>
+
           <%organisation = experience.organisation%>
           <% if organisation.experiences.each do |experience|%>
             <%experience.reviews.any?%>
@@ -47,7 +48,6 @@
               <%end%>
             <%end%>
 
-
             <% if counter == 0 %>
               <p>  </p>
             <% else %>
@@ -55,8 +55,6 @@
               <%rating.times do %>
               <i class="fas fa-star"></i>
             <% end %> (<%=counter%>)
-
-
           <%end%>
           <%end%>
             <p> Date: <%=experience.date.strftime("%d-%m-%Y") %>  Time: <%= experience.start_time.strftime('%H:%M') %> - <%= experience.end_time.strftime('%H:%M')%></p>

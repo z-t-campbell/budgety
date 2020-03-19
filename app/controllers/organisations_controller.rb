@@ -1,5 +1,5 @@
 class OrganisationsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:new, :create, :show]
+  skip_before_action :authenticate_user!, only: [:show]
 
   def index
     @organisations = Organisation.all
@@ -18,15 +18,6 @@ class OrganisationsController < ApplicationController
 
   def show
     @organisation = Organisation.find(params[:id])
-    @counter = 0
-    @rating = 0
-      @organisation.experiences.each do |experience|
-        experience.reviews.each do |review|
-          @counter += 1
-          @rating += review.rating
-        end
-      end
-    @organisation.rating = @rating / @counter
   end
 
   def edit
