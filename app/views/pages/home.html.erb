@@ -42,7 +42,7 @@
           <div>
           <h2 class="text-capitalize"><%= link_to experience.name, experience_path(experience) %></h2>
 
-          <%organisation = experience.organisation%>
+        <%organisation = experience.organisation%>
           <% if organisation.experiences.each do |experience|%>
             <%experience.reviews.any?%>
           <%end%>
