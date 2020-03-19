@@ -45,10 +45,16 @@
                     <%rating += review.rating%>
                   <%end%>
                 <%end%>
-                <% rating /= counter %>
-                <%rating.times do %>
+
+                <% if counter == 0 %>
+                  <p>  </p>
+                <% else %>
+                  <% rating /= counter %>
+                  <%rating.times do %>
                   <i class="fas fa-star"></i>
-                <%end%>(<%= counter %>)
+                <% end %> (<%=counter%>)
+
+              <%end%>
               <%end%>
 
               <p><%=experience.date.strftime("%a %d %b") %>, <%= experience.start_time.strftime('%H:%M%p')%></p>

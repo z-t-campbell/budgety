@@ -1,8 +1,44 @@
-<ul>
-  <%@organisations.each do |organisation|%>
-    <% if current_user.id == organisation.user.id %>
-      <li><%= link_to organisation.name, organisation_path(organisation)%></li>
-    <%end%>
+<!-- Greeting to user -->
+<div class="organisation-greeting">
+  <h1> Hello <%= current_user.first_name %></h1>
+  <p> Find your organisation listings below:  </p>
+</div>
+
+
+<div class="card-listing">
+
+<!-- First Box -->
+  <div class="box-org"> </div>
+    <div class="org-name">
+      <% @organisations.each do |organisation|%>
+      <% if current_user.id == organisation.user.id %>
+      <h2><i class="fas fa-building text-danger icon"></i><%= link_to organisation.name, organisation_path(organisation)%></h2>
+    </div>
+
+    <% if organisation.photo.nil? %>
+    <div class="org-photo">
+      <%= cl_image_tag organisation.photo.key %>
+    </div>
+    <% end %>
+
+    <div class="org-info">
+      <p> <%= organisation.location %></p>
+      <% if organisation.rating%>
+        <% organisation.rating.times do %>
+          <i class="fas fa-star"></i>
+        <%end%>
+      <% end %>
+    </div>
+
+<!-- Second Box -->
+  <div class="box-org-experiences">
+    <% organisation.experiences.each do |experience|%>
+      <p><%= link_to experience.name, experience_path(experience)%></p>
+      <%end%>
+  </div>
+
   <%end%>
-</ul>
+  <%end%>
+</div>
+
 

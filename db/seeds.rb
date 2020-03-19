@@ -20,10 +20,14 @@ Review.destroy_all
 puts "creating users"
 maria = User.create!(email: "maria@cool.com", password: "123456", first_name: "Maria", last_name: "Stefan")
 photo = URI.open('https://res.cloudinary.com/dmwa29qvx/image/upload/v1584042777/profile_bocet6.jpg')
-maria.photo = photo
+maria.photo.attach(io: photo, filename: 'maria.jpg', content_type: 'image/jpg')
+maria.save!
+
 james = User.create!(email: "james@cool.com", password: "123456", first_name: "James", last_name: "Williamson")
 photo = URI.open('https://res.cloudinary.com/dmwa29qvx/image/upload/v1584042777/profil2_unizy0.jpg')
-james.photo = photo
+james.photo.attach(io: photo, filename: 'james.jpg', content_type: 'image/jpg')
+james.save!
+
 puts "users created"
 
 
@@ -31,7 +35,7 @@ puts "creating organisations"
 
 ticketmaster = Organisation.new(name: "Ticket Master", location: "Westminster")
 photo = URI.open('https://res.cloudinary.com/dmwa29qvx/image/upload/v1584042777/ticketmaster-banner2500w_occdfa.png')
-ticketmaster.photo = photo
+ticketmaster.photo.attach(io: photo, filename: 'ticketmaster.png', content_type: 'image/png')
 ticketmaster.user = maria
 ticketmaster.save!
 
@@ -39,7 +43,7 @@ puts "created ticketmaster"
 
 breakneck = Organisation.new(name: "Breakneck Comedy", location: "Islington")
 photo = URI.open('https://res.cloudinary.com/dmwa29qvx/image/upload/v1584042777/logo_square_png_mykwi7.png')
-breakneck.photo = photo
+breakneck.photo.attach(io: photo, filename: 'breakneck.png', content_type: 'image/png')
 breakneck.user = maria
 breakneck.save!
 
@@ -47,7 +51,7 @@ puts "created breakneck"
 
 madtheatre = Organisation.new(name: "Mad Theatre", location: "Brixton")
 photo = URI.open('https://res.cloudinary.com/dmwa29qvx/image/upload/v1584042777/mad-newlogo-white-large_1_m0xchh.jpg')
-madtheatre.photo = photo
+madtheatre.photo.attach(io: photo, filename: 'madtheatre.jpg', content_type: 'image/jpg')
 madtheatre.user = maria
 madtheatre.save!
 
@@ -55,7 +59,7 @@ puts "created mad theatre"
 
 groupon = Organisation.new(name: "Groupon", location: "Hoxton")
 photo = URI.open('https://res.cloudinary.com/dmwa29qvx/image/upload/v1584042777/USU-groupon_afdxdt.png')
-groupon.photo = photo
+groupon.photo.attach(io: photo, filename: 'groupon.png', content_type: 'image/png')
 groupon.user = maria
 groupon.save!
 
