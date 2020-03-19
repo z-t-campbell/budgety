@@ -29,9 +29,7 @@
 
 .navbar-brand {
   display: flex;
-}
-
-.navbar-brand  {
+  justify-content: space-between;
   text-decoration: none;
   color: white;
   font-weight: bold;
@@ -97,9 +95,6 @@ body {
   background-color: white;
 }
 
-.navbar-link {
-margin-left: -84px;
-}
 .navbar-details {
-  margin-right: 20px;
+  margin-top: 12px;
 }
