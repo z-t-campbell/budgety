@@ -23,11 +23,27 @@
 
     <div class="org-info">
       <p> <%= organisation.location %></p>
-      <% if organisation.rating%>
-        <% organisation.rating.times do %>
-          <i class="fas fa-star"></i>
+      <% if organisation.experiences.each do |experience|%>
+              <%experience.reviews.any?%>
+            <%end%>
+        <%rating = 0%>
+        <%counter = 0%>
+        <% organisation.experiences.each do |experience|%>
+           <%experience.reviews.each do |review|%>
+            <%counter += 1%>
+            <%rating += review.rating%>
+            <%end%>
         <%end%>
-      <% end %>
+
+        <% if counter == 0 %>
+              <p> </p>
+        <% else %>
+          <% rating /= counter %>
+          <%rating.times do %>
+            <i class="fas fa-star"></i>
+          <% end %> (<%=counter%>)
+        <%end%>
+        <%end%>
     </div>
 
 <!-- Second Box -->

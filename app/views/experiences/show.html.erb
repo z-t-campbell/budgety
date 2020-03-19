@@ -75,17 +75,16 @@
              <p><%=review.order.user.last_name%></p>
            </div>
 
-        <div class="rating-stars">
-           <%review.rating.times do %>
-             <i class="fas fa-star"></i>
-             <%end%>
-        </div>
-        <div class="rating-info">
-           <p><%=review.title%></p>
-           <p><%=review.content%></p>
-          <%end%>
-        </div>
-
+            <div class="rating-stars">
+               <%review.rating.times do %>
+                 <i class="fas fa-star"></i>
+                 <%end%>
+            </div>
+            <div class="rating-info">
+               <p><%=review.title%></p>
+               <p><%=review.content%></p>
+            </div>
+         <%end%>
       </div>
 
     </div>
