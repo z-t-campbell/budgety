@@ -67,9 +67,9 @@
           <%@experience.reviews.each do |review|%>
             <div class="rating-reviewer">
               <% if review.order.user.photo.attached?%>
-                <%= cl_image_tag review.user.photo.key, class: 'avatar-large' %>
+                <%= cl_image_tag review.order.user.photo.key, class: 'avatar-large' %>
               <%else%>
-                <%= cl_image_tag "https://res.cloudinary.com/dmwa29qvx/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1584042777/profil2_unizy0.jpg", class: 'avatar-large'%>
+                <%= cl_image_tag "https://res.cloudinary.com/dmwa29qvx/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1584313842/stockprifile_s6faqt.jpg", class: 'avatar-large'%>
               <%end%>
              <p><%=review.order.user.first_name%></p>
              <p><%=review.order.user.last_name%></p>
