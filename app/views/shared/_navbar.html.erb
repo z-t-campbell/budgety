@@ -40,7 +40,7 @@
                   <%end%>
 
                 <div class="dropdown-menu nav-links-drk" aria-labelledby="navbarDropdownMenuLink">
-                  <%= link_to 'Account', root_path, class: "dropdown-item" %>
+                  <%= link_to 'Edit Account', edit_user_registration_path, class: "dropdown-item" %>
                   <%= link_to 'Bookings', orders_path, class: "dropdown-item" %>
                   <% if current_user && current_user.organisations.empty?%>
                       <%= link_to 'Listings', new_organisation_path, class: "dropdown-item" %>

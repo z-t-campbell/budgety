@@ -59,7 +59,6 @@
               <i class="fas fa-star"></i>
             <%end%>(<%= counter %>)
           <%end%>
-
             <p> Date: <%=experience.date.strftime("%d-%m-%Y") %>  Time: <%= experience.start_time.strftime('%H:%M') %> - <%= experience.end_time.strftime('%H:%M')%></p>
             <p>Location: <%= experience.location %></p>
             <p>Host: <%= link_to experience.organisation.name, organisation_path(experience.organisation) %></p>
