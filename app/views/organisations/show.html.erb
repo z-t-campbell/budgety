@@ -10,7 +10,7 @@
 
   <h1><%= @organisation.name%></h1>
   <% if @organisation.photo.attached?%>
-    <%= cl_image_tag @organsation.photo.key, height: 300, width: 400, crop: :fill%>
+    <%= cl_image_tag @organisation.photo.key, height: 300, width: 400, crop: :fill%>
   <%end%>
 
   <%if @organisation.experiences.any? && @organisation.experiences.each do |experience|%>

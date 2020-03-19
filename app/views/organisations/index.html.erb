@@ -15,11 +15,13 @@
       <h2><i class="fas fa-building text-danger icon"></i><%= link_to organisation.name, organisation_path(organisation)%></h2>
     </div>
 
-    <% if organisation.photo.nil? %>
+
+    <% if organisation.photo.attached? %>
     <div class="org-photo">
-      <%= cl_image_tag organisation.photo.key %>
+      <%= cl_image_tag organisation.photo.key, height: 300, width: 400, crop: :fill %>
     </div>
     <% end %>
+
 
     <div class="org-info">
       <p> <%= organisation.location %></p>
@@ -52,6 +54,30 @@
       <p><%= link_to experience.name, experience_path(experience)%></p>
       <%end%>
   </div>
+
+
+  <%organisation = experience.organisation%>
+    <% if organisation.experiences.each do |experience|%>
+      <%experience.reviews.any?%>
+    <%end%>
+      <%rating = 0%>
+      <%counter = 0%>
+      <% organisation.experiences.each do |experience|%>
+        <%experience.reviews.each do |review|%>
+          <%counter += 1%>
+          <%rating += review.rating%>
+        <%end%>
+      <%end%>
+
+      <% if counter == 0 %>
+        <p>  </p>
+      <% else %>
+        <% rating /= counter %>
+        <%rating.times do %>
+        <i class="fas fa-star"></i>
+      <% end %> (<%=counter%>)
+    <%end%>
+    <%end%>
 
   <%end%>
   <%end%>
