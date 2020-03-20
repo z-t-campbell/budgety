@@ -36,6 +36,8 @@
   font-size: 40px;
   margin: 0;
   padding: 0;
+  margin-left: -84px;
+  margin-top: -11px;
 }
 
 .nav-links-white a {
@@ -96,5 +98,24 @@ body {
 }
 
 .navbar-details {
+  margin-top: 10px;
+  color: red;
+}
+
+.navbar-search {
   margin-top: 12px;
+  margin-right: 828px;
+}
+
+.navbar-login {
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 40px;
+  margin: 0;
+  padding: 0;
+  margin-left: -84px;
+  margin-top: -11px;
 }

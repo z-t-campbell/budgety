@@ -21,12 +21,17 @@
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  background: #1EDD88;
+  background: #ED0808;
   transition: background 0.3s ease;
+  width: 30%;
+}
+
+.btn-flat2 {
+  margin: auto;
 }
 
 .btn-flat:hover {
-  background: #1BCB7F;
+  background: blue;
   color: white;
 }
 
