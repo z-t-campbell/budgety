@@ -24,9 +24,24 @@ maria.photo.attach(io: photo, filename: 'maria.jpg', content_type: 'image/jpg')
 maria.save!
 
 james = User.create!(email: "james@cool.com", password: "123456", first_name: "James", last_name: "Williamson")
-photo = URI.open('https://res.cloudinary.com/dmwa29qvx/image/upload/v1584042777/profil2_unizy0.jpg')
+photo = URI.open('https://res.cloudinary.com/dmwa29qvx/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1584654009/nCkB8gVTQw2DLUWYJqAb7zQZ.jpg')
 james.photo.attach(io: photo, filename: 'james.jpg', content_type: 'image/jpg')
 james.save!
+
+natalie = User.create!(email: "natalie@cool.com", password: "123456", first_name: "natalie", last_name: "Speed")
+photo = URI.open('https://res.cloudinary.com/dmwa29qvx/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1584726881/profile3_mgarmj.jpg')
+natalie.photo.attach(io: photo, filename: 'natalie.jpg', content_type: 'image/jpg')
+natalie.save!
+
+syed = User.create!(email: "syed@cool.com", password: "123456", first_name: "syed", last_name: "Akther")
+photo = URI.open('https://res.cloudinary.com/dmwa29qvx/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1584726990/profile4_wvwqhx.jpg')
+syed.photo.attach(io: photo, filename: 'syed.jpg', content_type: 'image/jpg')
+syed.save!
+
+maisie = User.create!(email: "maisie@cool.com", password: "123456", first_name: "maisie", last_name: "Douglas")
+photo = URI.open('https://res.cloudinary.com/dmwa29qvx/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1584727093/profile5_hy1kxr.jpg')
+maisie.photo.attach(io: photo, filename: 'maisie.jpg', content_type: 'image/jpg')
+maisie.save!
 
 puts "users created"
 
@@ -115,7 +130,7 @@ experience6.save!
 
 puts "experiences 6"
 
-experience7 = Experience.new(name: "Comdey Night for 2", category: "Comedy", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ", location: "231 Cambridge Heath Rd, London E2 0EL", date: "2020-04-22", start_time: "2020-04-22 18:00:00", end_time: "2020-04-22 20:00:00", venue_name: "Backyard Comedy Club", price_cents: 1000)
+experience7 = Experience.new(name: "Comedy Night for 2", category: "Comedy", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ", location: "231 Cambridge Heath Rd, London E2 0EL", date: "2020-04-22", start_time: "2020-04-22 18:00:00", end_time: "2020-04-22 20:00:00", venue_name: "Backyard Comedy Club", price_cents: 1000)
 experience7.organisation = breakneck
 photo = URI.open('https://res.cloudinary.com/dmwa29qvx/image/upload/v1584042790/comedy_2_w8ndwz.jpg')
 experience7.photos.attach(io: photo, filename: 'comedy.jpg', content_type: 'image/jpg')
@@ -284,10 +299,35 @@ experience27.save!
 
 puts "experiences 27"
 
+
+experience28 = Experience.new(name: "All Star Comedy Weekend", category: "Comedy", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ", location: "231 Cambridge Heath Rd, London E2 0EL", date: "2020-04-22", start_time: "2020-04-22 18:00:00", end_time: "2020-04-22 20:00:00", venue_name: "Backyard Comedy Club", price_cents: 1000)
+experience28.organisation = breakneck
+photo = URI.open('https://res.cloudinary.com/dmwa29qvx/image/upload/v1583436711/comedy2_nmm8wz.jpg')
+experience28.photos.attach(io: photo, filename: 'comedy2.jpg', content_type: 'image/jpg')
+experience28.save!
+
+puts "experiences 28"
+
+experience29 = Experience.new(name: "Fleetwood Mac - Rumours Tour", category: "Music Events", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ", location: "Green Lanes, Stoke Newington, London N4 2HA", date: "2020-04-13", start_time: "2020-04-13 18:00:00", end_time: "2020-04-13 20:00:00", venue_name: "Olympic Stadium", price_cents: 3500)
+experience29.organisation = ticketmaster
+photo = URI.open('https://res.cloudinary.com/dmwa29qvx/image/upload/v1584728665/Fleetwood-Mac-Rumours-0207-e1486737658687-1_f0ni0z.jpg')
+experience29.photos.attach(io: photo, filename: 'ceramics.jpg', content_type: 'image/jpg')
+experience29.save!
+
+puts "experiences 29"
+
+experience30 = Experience.new(name: "Le Miserable", category: "Arts, Theatre & Shows", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ", location: "The Royal Court Theatre, Sloane Square, Belgravia, London SW1W 8AS", date: "2020-04-07", start_time: "2020-04-07 18:00:00", end_time: "2020-04-07 20:00:00", venue_name: "The Royal Court Theatre", price_cents: 4000)
+experience30.organisation = madtheatre
+photo = URI.open('https://res.cloudinary.com/dmwa29qvx/image/upload/v1583438685/AnvdyoSRhCyAXRXbG5NxtGne.png')
+experience30.photos.attach(io: photo, filename: 'lemis.jpg', content_type: 'image/jpg')
+experience30.save!
+
+puts "experiences 30"
+
 puts "creating Orders!"
-40.times do
+100.times do
   Order.create!(
-    user: james,
+    user: [syed, natalie, james, maisie].sample,
     experience: Experience.all.sample,
     state: "confirmed"
   )
@@ -299,12 +339,12 @@ puts "creating reviews!"
 
 orders = Order.all
 ratings = [2, 3, 4, 5]
-
+reviews = ["We had a fabulous time, honestly dont hesitate to book", "I would recommend", "This is a must go!", "Great atmosphere and the price was reasonable", "I went with my friends and we had fun!", "Booking was so simple and all we needed to do was show up and show our booking confirmation"]
 orders.each do |order|
  Review.create(
    rating: ratings.sample,
-   title: "The best experience",
-   content:"We had a fabulous time, honestly dont hesitate to book",
+   title: "review:",
+   content: reviews.sample,
    order: order
   )
 end
