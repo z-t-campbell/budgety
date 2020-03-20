@@ -25,7 +25,7 @@
                           <p><%=review.title%></p>
                           <p><%=review.content%></p>
                           <% if review.order.user.photo.attached?%>
-                            <%= cl_image_tag review.user.photo.key, class: 'avatar-large' %>
+                            <%= cl_image_tag review.order.user.photo.key, class: 'avatar-large' %>
                           <%else%>
                            <%= cl_image_tag "https://res.cloudinary.com/dmwa29qvx/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1584042777/profil2_unizy0.jpg", class: 'avatar-large'%>
                           <%end%>

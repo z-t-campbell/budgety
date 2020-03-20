@@ -45,44 +45,46 @@
     <% if @experience.reviews.any?%>
     <div class="experience-rating">
       <div class="rating-box1">
-        <h2> Guest reviews </h2>
-        <%averagerating = 0%>
+        <%rating = 0%>
         <%counter = 0%>
         <%@experience.reviews.each do |review|%>
           <%counter += 1%>
-          <%averagerating += review.rating%>
+          <%rating += review.rating%>
         <%end%>
-        <% rating = averagerating / counter %>
-        <%=rating%>
+        <% rating /= counter %>
+        <h2> Guest reviews(<%=counter%>)</h2>
         <%rating.times do %>
           <i class="fas fa-star"></i>
-        <%end%>
+        <%end%><span>(average)</span>
       </div>
       <%end%>
 
       <div class="rating-box2">
           <%@experience.reviews.each do |review|%>
-            <div class="rating-reviewer">
-              <% if review.order.user.photo.attached?%>
-                <%= cl_image_tag review.order.user.photo.key, class: 'avatar-large' %>
-              <%else%>
-                <%= cl_image_tag "https://res.cloudinary.com/dmwa29qvx/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1584313842/stockprifile_s6faqt.jpg", class: 'avatar-large'%>
-              <%end%>
-             <p><%=review.order.user.first_name%></p>
-             <p><%=review.order.user.last_name%></p>
-           </div>
+            <div>
+              <div class="rating-reviewer">
+                <% if review.order.user.photo.attached?%>
+                  <%= cl_image_tag review.order.user.photo.key, class: 'avatar-large' %>
+                <%else%>
+                  <%= cl_image_tag "https://res.cloudinary.com/dmwa29qvx/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1584313842/stockprifile_s6faqt.jpg", class: 'avatar-large'%>
+                <%end%>
+               <p><%=review.order.user.first_name%></p>
+               <p><%=review.order.user.last_name%></p>
+             </div>
 
-            <div class="rating-stars">
-               <%review.rating.times do %>
-                 <i class="fas fa-star"></i>
-                 <%end%>
-            </div>
-            <div class="rating-info">
-               <p><%=review.title%></p>
-               <p><%=review.content%></p>
-            </div>
-         <%end%>
+             <div class="rating-stars">
+                <%review.rating.times do %>
+                   <i class="fas fa-star"></i>
+                <%end%>
+             </div>
+             <div class="rating-info">
+              <p><%=review.title%></p>
+              <p><%=review.content%></p>
+             </div>
+          </div>
+        <%end%>
       </div>
+
     </div>
   </div>
 
