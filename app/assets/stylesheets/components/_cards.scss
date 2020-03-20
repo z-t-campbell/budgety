@@ -209,18 +209,23 @@
 .card-experience-show-info {
   font-size: 14px;
   opacity: .5;
-
   margin: 5px 10px;
 }
 
 .experience-time {
   display: flex;
   margin-left: 2px;
+  align-items: center;
 }
 
 .experience-location {
   display: flex;
   margin-left: 2px;
+  align-items: center;
+}
+
+.experience-date {
+  margin-left: 300px;
 }
 
 /******* Icon here *********/
