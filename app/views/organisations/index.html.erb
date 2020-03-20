@@ -1,8 +1,9 @@
 
+
 <div class="org-box">
   <!-- Greeting to user -->
     <div class="org-greeting">
-      <h1> Hello <%= current_user.first_name %></h1>
+      <h1> Hello <%= current_user.first_name %> 👋 </h1>
       <p> Find your organisation listings below:  </p>
     </div>
 
@@ -16,11 +17,11 @@
           <h2 class="org-title"><%= organisation.name %></h2>
           <div class="org-photo">
             <% if organisation.photo.attached? %>
-            <%= cl_image_tag organisation.photo.key, height: 300, width: 400, crop: :fill %>
+            <%= cl_image_tag organisation.photo.key, height: 300, width: 410, crop: :fill %>
             <% end %>
           </div>
           <p class="org-location"> <%= organisation.location %></p>
-          <div class="org-rating">
+          <div class="org-rating">feat
             <% if organisation.experiences.each do |experience|%>
               <%experience.reviews.any?%>
               <%end%>
