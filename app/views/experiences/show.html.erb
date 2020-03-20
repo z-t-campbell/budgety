@@ -28,7 +28,7 @@
         </div>
         <h1 class="card-experience-show-title"><%= @experience.name%></h2>
         <div class="card-experience-show-info">
-        <p><i class="far fa-calendar-alt text-danger icon"></i> <%= @experience.date.strftime('%a %d %b') %></p>
+        <p><i class="far fa-calendar-alt text-danger icon experience-date"></i> <%= @experience.date.strftime('%a %d %b') %></p>
         <div class="experience-time">
           <p> <i class="fas fa-hourglass-start text-danger icon"></i><%= @experience.start_time.strftime('%H:%M') %></p>
           <p> - <%= @experience.end_time.strftime('%H:%M') %></p>
@@ -61,9 +61,6 @@
       <%end%>
 
       <div class="rating-box2">
-
-
-
           <%@experience.reviews.each do |review|%>
             <div class="rating-reviewer">
               <% if review.order.user.photo.attached?%>
@@ -86,7 +83,6 @@
             </div>
          <%end%>
       </div>
-
     </div>
   </div>
 
