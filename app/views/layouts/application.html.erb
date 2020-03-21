@@ -3,16 +3,16 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Budgety - one stop shop for finding local events within your budget.</title>
+    <title>Budgety - the one stop site for finding local events within your budget.</title>
     <%= favicon_link_tag 'logo.png' %>
-    <meta name="description" content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.">
+    <meta name="description" content="Budgety is an event discovery and booking e-commerce marketplace, providing users with fun local experiences at their budget.">
     <!-- Facebook Open Graph data -->
-    <meta property="og:title" content="Budgety - one stop shop for finding local events within your budget." />
+    <meta property="og:title" content="Budgety - the one stop site for finding local events within your budget." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="<%= request.original_url %>" />
     <meta property="og:image" content="<%= image_url "website.png" %>" />
-    <meta property="og:description" content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod." />
-    <meta property="og:site_name" content="Budgety - one stop shop for finding local events within your budget." />
+    <meta property="og:description" content="Budgety is an event discovery and booking e-commerce marketplace, providing users with fun local experiences at their budget." />
+    <meta property="og:site_name" content="Budgety - the one stop site for finding local events within your budget." />
         <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
@@ -22,11 +22,13 @@
 
 </head>
   <body>
+
     <% if current_page?(root_path) && !user_signed_in? %>
       <%= render 'shared/minimal_navbar' %>
     <% else %>
       <%= render 'shared/navbar' %>
     <%end%>
+
     <%= render 'shared/flashes'%>
 
 
@@ -34,5 +36,6 @@
     <%= javascript_include_tag 'application' %>
 
     <%= javascript_pack_tag 'application' %>
+     <%= render 'shared/footer'%>
   </body>
 </html>
