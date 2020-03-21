@@ -1,13 +1,15 @@
 <nav class="navbar navbar-expand-lg nav-links-white navbar-bg">
   <div class = "d-flex flex-row justify-content-between align-middle nav-items">
-    <div class="d-flex flex-row  justify-content-start">
+    <div class="d-flex flex-row  justify-content-start align-items-center">
       <div>
-        <%= link_to 'B', root_path, class: "navbar-brand" %>
+        <%= link_to 'logo', root_path %>
       </div>
       <div>
-        <%= form_tag experiences_path, method: :get, class: "d-flex flex-row" do %>
-           <%= text_field_tag :budget, nil, placeholder: 'Your budget...', class: "form-control" %>
-           <%= submit_tag "Search", class: "btn btn-danger" %>
+        <%= form_tag experiences_path, method: :get, class: "d-flex flex-row justify-content-between search" do %>
+          <%= button_tag(type: "submit", class: "nav-search") do %>
+            <i class="fas fa-search"></i>
+           <%end%>
+           <%= text_field_tag :budget, nil, placeholder: 'Your budget...', class: "text-center form-control" %>
         <% end %>
       </div>
     </div>
