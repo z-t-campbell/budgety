@@ -149,7 +149,6 @@
 }
 
 
-
 // .org-experience-photo {
 //   height: 50px;
 //   width: 100px;
@@ -159,3 +158,36 @@
   margin-top: 2px;
   margin-bottom: 0.6rem;
 }
+
+
+
+
+//  Orders - displaying infor and reviews side by side
+
+.order-card {
+  padding: 20px 50px;
+
+}
+
+.org-flex3 {
+  display: inline-block;
+  vertical-align:top;
+  // padding-right: 50px;
+  // padding-bottom: 80px;
+}
+
+.order-review-card {
+  padding-left: 100px;
+  color: #B6B6B6;
+}
+
+
+.order-greeting {
+
+}
+
+.order-line hr {
+  background: #FA8072;
+}
+
+

@@ -1,50 +1,75 @@
-<div class="text-center">
-  <h1>Bookings</h1>
-</div>
 
-<% if current_user.orders.any?%>
-  <div class="container">
-    <div class="row justify content-center">
-      <div class="col-6 col-lg-6 my-4 p-1">
-        <div class="card" style="width: 28rem;, height: 28rem;">
-          <div class="text-center">
-            <div class="card-body">
-              <%current_user.orders.each do |order|%>
-                  <h1><%= order.experience.name%></h1>
-                  <h4>Location: <%= order.experience.location%></h4>
-                  <h5>Date: <%= order.experience.date.strftime('%d-%m-%Y') %></h5>
-                  <h5>Start time: <%= order.experience.start_time.strftime('%H:%M') %></h5>
-                  <h5>End time: <%= order.experience.end_time.strftime('%H:%M') %></h5>
-                  <h5>Amount: <%= humanized_money_with_symbol(order.experience.price) %></h5>
-                  <% order.experience.photos.each do |photo| %>
-                    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill%>
-                  <%end%>
-                  <% if order.review.present? %>
-                    <div>
-                      <% review = order.review%>
-                          <p><%=review.title%></p>
-                          <p><%=review.content%></p>
-                          <% if review.order.user.photo.attached?%>
-                            <%= cl_image_tag review.order.user.photo.key, class: 'avatar-large' %>
-                          <%else%>
-                           <%= cl_image_tag "https://res.cloudinary.com/dmwa29qvx/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1584042777/profil2_unizy0.jpg", class: 'avatar-large'%>
-                          <%end%>
-                          <p><%=review.order.user.first_name%></p>
-                          <%review.rating.times do %>
-                             <i class="fas fa-star"></i>
-                          <%end%>
-                    </div>
-                  <%else%>
-                      <%= link_to "Add a Review", new_order_review_path(order), :class => "btn btn-primary"%>
-                  <%end%>
-              <%end%>
-            </div>
-          </div>
+<div class="org-box">
+
+  <div class="order-greeting">
+    <h1> Hello <%= current_user.first_name %> 👋 </h1>
+    <p> These are the experiences you have booked:  </p>
+  </div>
+  <br>
+  <hr class="order-line">
+  <% if current_user.orders.any?%>
+  <%current_user.orders.each do |order|%>
+
+  <div class="order-card">
+    <div class="org-flex3">
+      <div class="org-info-card">
+
+        <h1 class="org-title"><%= order.experience.name%></h1>
+        <div class="org-photo">
+          <% order.experience.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill%>
+          <%end%>
         </div>
+        <br>
+        <p>Location: <%= order.experience.location%></p>
+
+        <p><i class="far fa-calendar-alt text-danger icon"></i> <%= order.experience.date.strftime('%a %d %b') %></p>
+        <div class="experience-time">
+          <p> <i class="fas fa-hourglass-start text-danger icon"></i><%=order.experience.start_time.strftime('%H:%M') %></p>
+          <p> - <%=order.experience.end_time.strftime('%H:%M') %></p>
+        </div>
+        <div class="experience-location">
+          <p><i class="fas fa-map-marker-alt text-danger icon"></i> <%= order.experience.venue_name%> </p>
+        </div>
+        <p><i class="fas fa-tags text-danger icon"></i>Amount: <%= humanized_money_with_symbol(order.experience.price) %></p>
+
+      </div>
+    </div>
+
+    <div class="org-flex3">
+      <div class="order-review-card">
+        <% if order.review.present? %>
+        <h2> Your review: </h2>
+        <% review = order.review%>
+          <p><%=review.content%></p>
+          <% if review.order.user.photo.attached?%>
+            <%= cl_image_tag review.order.user.photo.key, class: 'avatar-large' %>
+          <%else%>
+           <%= cl_image_tag "https://res.cloudinary.com/dmwa29qvx/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1584042777/profil2_unizy0.jpg", class: 'avatar-large'%>
+          <%end%>
+          <p><%=review.order.user.first_name%></p>
+          <%review.rating.times do %>
+             <i class="fas fa-star"></i>
+          <%end%>
+        <%else%>
+          <%= link_to "Add a Review", new_order_review_path(order), :class => "btn btn-primary"%>
+        <%end%>
       </div>
     </div>
   </div>
+  <hr class="order-line">
 
-<%else%>
- <h1> You have no bookings </h1>
-<%end%>
+  <% end %>
+  <%else%>
+  <div class="text-center">
+    <h1> You have no bookings </h1>
+   </div>
+  <%end%>
+</div>
+
+
+
+
+
+
+
