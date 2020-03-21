@@ -21,7 +21,8 @@
   grid-auto-rows: auto;
   // grid-gap: 1rem;
   grid-gap: 10px 5px;
-  justify-item: start;
+  overflow-x: scroll;
+  width: 100%;
 }
 
 .category-container {

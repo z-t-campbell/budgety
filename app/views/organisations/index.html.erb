@@ -1,84 +1,75 @@
 <div class="banner6">
-<div class="org-box">
-  <!-- Greeting to user -->
+  <div class="org-box">
+    <!-- Greeting to user -->
     <div class="org-greeting">
       <h1> Hello <%= current_user.first_name %> 👋 </h1>
       <p> Find your organisations and  listings below  </p>
     </div>
-
-
-
-  <% @organisations.each do |organisation|%>
-    <% if current_user.id == organisation.user.id %>
-
-      <div class="org-info-card">
-        <div class="org-flex1">
-          <h2 class="org-title"><%= organisation.name %></h2>
-          <div class="org-photo">
-            <% if organisation.photo.attached? %>
-            <%= cl_image_tag organisation.photo.key, height: 300, width: 410, crop: :fill %>
-            <% end %>
-          </div>
-          <p class="org-location"> <%= organisation.location %></p>
-          <div class="org-rating">
-            <% if organisation.experiences.each do |experience|%>
-              <%experience.reviews.any?%>
-              <%end%>
-              <%rating = 0%>
-              <%counter = 0%>
+    <% @organisations.each do |organisation|%>
+      <% if current_user.id == organisation.user.id %>
+        <div class="org-info-card d-flex align-items-start justify-content-around">
+          <div class="org-flex1">
+            <h2 class="org-title"><%= organisation.name %></h2>
+            <div class="org-photo">
+              <% if organisation.photo.attached? %>
+                <%= cl_image_tag organisation.photo.key, height: 300, width: 410, crop: :fill %>
+              <% end %>
+            </div>
+            <p class="org-location"> <%= organisation.location %></p>
+            <div class="org-rating">
+              <% if organisation.experiences.each do |experience|%>
+                  <%experience.reviews.any?%>
+                <%end%>
+                <%rating = 0%>
+                <%counter = 0%>
                 <% organisation.experiences.each do |experience|%>
-                <%experience.reviews.each do |review|%>
-                  <%counter += 1%>
-                  <%rating += review.rating%>
+                  <%experience.reviews.each do |review|%>
+                    <%counter += 1%>
+                    <%rating += review.rating%>
+                  <%end%>
                 <%end%>
+                <% if counter == 0 %>
+                  <p> No reviews yet </p>
+                <% else %>
+                  <% rating /= counter %>
+                  <%rating.times do %>
+                    <i class="fas fa-star"></i>
+                  <% end %> (<%=counter%>)
                 <%end%>
-              <% if counter == 0 %>
-                <p> No reviews yet </p>
-              <% else %>
-                <% rating /= counter %>
-                <%rating.times do %>
-                  <i class="fas fa-star"></i>
-              <% end %> (<%=counter%>)
-            <%end%>
-            <%end%>
-          </div>
-
-          <div class="org-actions">
-            <%= link_to 'Edit', edit_organisation_path(organisation), :class => "btn btn-danger org-button"%>
-            <%= link_to 'Delete', organisation_path(organisation), method: :delete, :class => "btn btn-secondary org-button"%>
-          </div>
-          <div class="text-justify">
-            <p class="org-create"> To create a new experience click <%= link_to'here', new_organisation_experience_path(organisation)%> </p>
-          </div>
-        </div>
-
-        <div class="org-flex1">
-          <p id="org-subheading"> <%=organisation.name %>'s upcoming experiences </p>
-          <% organisation.experiences.each do |experience|%>
-
-          <div class="org-experience-card">
-            <div class="org-flex2">
-              <%= cl_image_tag experience.photos.first.key, height: 80, width: 150, class: "org-experience-photo" %>
+              <% end %>
             </div>
-
-            <div class="org-flex2">
-              <p class="org-experience-title"><%= link_to experience.name, experience_path(experience)%></p>
-              <p><i class="far fa-calendar-alt text-danger icon"></i> <%= experience.date.strftime('%a %d %b') %></p>
-              <div class="experience-time">
-                <p> <i class="fas fa-hourglass-start text-danger icon"></i><%=experience.start_time.strftime('%H:%M') %></p>
-                <p> - <%=experience.end_time.strftime('%H:%M') %></p>
-              </div>
-              <div class="experience-location">
-                <p><i class="fas fa-map-marker-alt text-danger icon"></i> <%= experience.venue_name%> </p>
-              </div>
+            <div class="org-actions">
+              <%= link_to 'Edit', edit_organisation_path(organisation), :class => "btn btn-danger org-button"%>
+              <%= link_to 'Delete', organisation_path(organisation), method: :delete, :class => "btn btn-secondary org-button"%>
+            </div>
+            <div class="text-justify">
+              <p class="org-create"> To create a new experience click <%= link_to'here', new_organisation_experience_path(organisation)%> </p>
             </div>
           </div>
-          <%end%>
+          <div class="org-flex1">
+            <p id="org-subheading"> <%=organisation.name %>'s upcoming experiences </p>
+            <% organisation.experiences.each do |experience|%>
+              <div class="org-experience-card">
+                <div class="org-flex2">
+                  <%= cl_image_tag experience.photos.first.key, height: 80, width: 150, class: "org-experience-photo" %>
+                </div>
+                <div class="org-flex2">
+                  <p class="org-experience-title"><%= link_to experience.name, experience_path(experience)%></p>
+                  <p><i class="far fa-calendar-alt text-danger icon"></i> <%= experience.date.strftime('%a %d %b') %></p>
+                  <div class="experience-time">
+                    <p> <i class="fas fa-hourglass-start text-danger icon"></i><%=experience.start_time.strftime('%H:%M') %></p>
+                    <p> - <%=experience.end_time.strftime('%H:%M') %></p>
+                  </div>
+                  <div class="experience-location">
+                    <p><i class="fas fa-map-marker-alt text-danger icon"></i> <%= experience.venue_name%> </p>
+                  </div>
+                </div>
+              </div>
+            <%end%>
+          </div>
         </div>
-
+        <hr>
       <% end %>
-      <hr>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
 </div>

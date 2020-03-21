@@ -1,11 +1,25 @@
+
+html, body {
+  height:100%;
+  margin:0;
+}
+
+body {
+  display:flex;
+  flex-direction: column;
+}
+
+footer{
+  width: 100%;
+  margin-top: auto;
+}
+
 * {
   font-family: Roboto;
 }
 
 
 .footer-distributed {
-  margin-top: 20px;
-  margin-bottom: 0px;
   background-color: #292c2f;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
