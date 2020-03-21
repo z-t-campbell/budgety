@@ -3,8 +3,17 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Budgety</title>
-    <%= csrf_meta_tags %>
+    <title>Budgety - one stop shop for finding local events within your budget.</title>
+    <%= favicon_link_tag 'logo.png' %>
+    <meta name="description" content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.">
+    <!-- Facebook Open Graph data -->
+    <meta property="og:title" content="Budgety - one stop shop for finding local events within your budget." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= request.original_url %>" />
+    <meta property="og:image" content="<%= image_url "website.png" %>" />
+    <meta property="og:description" content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod." />
+    <meta property="og:site_name" content="Budgety - one stop shop for finding local events within your budget." />
+        <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= stylesheet_pack_tag 'application', media: 'all' %>
