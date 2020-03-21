@@ -1,52 +1,74 @@
-<div class="container">
-  <div class="row justify content-center">
-    <div class="col-6 col-lg-6 my-4 p-1">
-      <div class="card" style="width: 28rem;, height: 28rem;">
-        <div class="text-center">
-  <div class="card-body">
-    <div class="text-center">
-     <h1>Your Organisation</h1>
+<div class="org-box">
+
+  <div class="org-info-card">
+    <div class="org-flex2">
+      <h2 class="org-title"><%= @organisation.name %></h2>
+      <div class="org-photo">
+        <% if @organisation.photo.attached? %>
+        <%= cl_image_tag @organisation.photo.key, height: 300, width: 410, crop: :fill %>
+        <% end %>
+      </div>
+      <br>
+      <p> <%= @organisation.location %></p>
+
+      <%if @organisation.experiences.any? && @organisation.experiences.each do |experience|%>
+        <%experience.reviews.any?%>
+      <%end%>
+        <%rating = 0%>
+        <%count = 0%>
+        <%@organisation.experiences.each do |experience|%>
+          <% experience.reviews.each do |review|%>
+            <%count += 1%>
+            <% rating +=review.rating%>
+            <%end%>
+          <%end%>
+        <%rating /= count%>
+        <%rating.times do %>
+          <i class="fas fa-star"></i>
+        <%end%>(<%=count%> reviews)
+      <%end%>
+      <br>
+
+      <% if current_user && current_user.id == @organisation.user.id %>
+        <div class="org-actions2">
+          <%= link_to 'Create an Experience', new_organisation_experience_path(@organisation), :class => "btn btn-danger"%>
+          <%= link_to 'Edit organisation', edit_organisation_path(@organisation), :class => "btn btn-primary"%>
+          <%= link_to 'Delete organisation', organisation_path(@organisation), method: :delete, :class => "btn btn-secondary"%>
+        </div>
+      <%end%>
+
     </div>
 
-  <h1><%= @organisation.name%></h1>
-  <% if @organisation.photo.attached?%>
-    <%= cl_image_tag @organisation.photo.key, height: 300, width: 400, crop: :fill%>
-  <%end%>
+    <div class="org-flex2">
+      <p id="org-subheading"> <%= @organisation.name %>'s upcoming experiences </p>
+      <% @organisation.experiences.each do |experience|%>
 
-  <%if @organisation.experiences.any? && @organisation.experiences.each do |experience|%>
-       <%experience.reviews.any?%>
-    <%end%>
+      <div class="org-experience-card">
+        <div class="org-flex2">
+          <%= cl_image_tag experience.photos.first.key, height: 80, width: 150, class: "org-experience-photo" %>
+        </div>
 
-    <%rating = 0%>
-    <%count = 0%>
-    <%@organisation.experiences.each do |experience|%>
-      <% experience.reviews.each do |review|%>
-        <%count += 1%>
-        <% rating +=review.rating%>
-        <%end%>
-    <%end%>
-    <%rating /= count%>
-    <%rating.times do %>
-      <i class="fas fa-star"></i>
-    <%end%>(<%=count%> reviews)
-  <%end%>
-  <ul>
-    <% @organisation.experiences.each do |experience|%>
-      <li><%= link_to experience.name, experience_path(experience)%></li>
-    <%end%>
-  </ul>
+        <div class="org-flex2">
+          <p class="org-experience-title"><%= link_to experience.name, experience_path(experience)%></p>
+          <p><i class="far fa-calendar-alt text-danger icon"></i> <%= experience.date.strftime('%a %d %b') %></p>
+          <div class="experience-time">
+            <p> <i class="fas fa-hourglass-start text-danger icon"></i><%=experience.start_time.strftime('%H:%M') %></p>
+            <p> - <%=experience.end_time.strftime('%H:%M') %></p>
+          </div>
+          <div class="experience-location">
+            <p><i class="fas fa-map-marker-alt text-danger icon"></i> <%= experience.venue_name%> </p>
+          </div>
+        </div>
+      </div>
+     <%end%>
+    </div>
+  </div>
 </div>
 
-<% if current_user && current_user.id == @organisation.user.id %>
-  <div>
-    <%= link_to 'Create an Experience', new_organisation_experience_path(@organisation), :class => "btn btn-primary"%>
-  </div>
-  <br>
-  <div>
-    <%= link_to 'Edit organisation', edit_organisation_path(@organisation), :class => "btn btn-primary"%>
-  </div>
-  <br>
-  <div>
-    <%= link_to 'Delete organisation', organisation_path(@organisation), method: :delete, :class => "btn btn-primary"%>
-  </div>
-<%end%>
+
+
+
+
+
+
+

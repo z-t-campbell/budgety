@@ -1,5 +1,6 @@
 
 
+<div class="banner6">
 <div class="org-box">
   <!-- Greeting to user -->
     <div class="org-greeting">
@@ -21,7 +22,7 @@
             <% end %>
           </div>
           <p class="org-location"> <%= organisation.location %></p>
-          <div class="org-rating">feat
+          <div class="org-rating">
             <% if organisation.experiences.each do |experience|%>
               <%experience.reviews.any?%>
               <%end%>
@@ -76,8 +77,8 @@
         </div>
 
       <% end %>
+      <hr>
     </div>
   <% end %>
-
 </div>
-
+</div>
