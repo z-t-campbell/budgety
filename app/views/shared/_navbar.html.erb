@@ -2,7 +2,10 @@
   <div class = "d-flex flex-row justify-content-between align-middle nav-items">
     <div class="d-flex flex-row  justify-content-start align-items-center">
       <div>
-        <%= link_to 'logo', root_path %>
+        <%= link_to root_path do%>
+         <%= image_tag 'logo.png'  %>
+        <%end%>
+
       </div>
       <div>
         <%= form_tag experiences_path, method: :get, class: "d-flex flex-row justify-content-between search" do %>
