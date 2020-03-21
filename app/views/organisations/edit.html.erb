@@ -1,9 +1,26 @@
-<h1>Edit organisation</h1>
-</div>
-<%= simple_form_for (@organisation) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :location %>
-  <%= f.submit "Update"%>
-<% end %>
-</div>
 
+<div class="container">
+  <div class="banner3">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-6 md-6">
+        <div class="card" style="width: 50rem;">
+          <div class="search-form box-shadow p-4">
+
+            <div class="text-center">
+              <h2> Edit organisation</h2>
+            </div>
+            </div>
+              <%= simple_form_for (@organisation) do |f| %>
+                <%= f.input :name %>
+                <%= f.input :location %>
+                <%= f.submit "Update", class: "btn btn-danger btn-lg btn-block"%>
+              <% end %>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

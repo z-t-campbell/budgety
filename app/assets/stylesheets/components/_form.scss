@@ -16,7 +16,6 @@
   }
 }
 
-
 .btn-flat {
   color: white;
   padding: 8px 24px;
@@ -64,3 +63,135 @@ margin-left: 10px;
    margin-top: 20px;
  margin-bottom: 20px;
 }
+
+
+
+
+/********** Simple form SCSS styling ***************/
+
+
+
+.simple_form {
+
+  input[type="text"] {
+    border: 1.5px solid #B6B6B6;
+    border-left-color: #FA8072;
+}
+
+  input[type="email"] {
+    border: 1.5px solid #B6B6B6;
+    border-left-color: #FA8072;
+}
+
+  input[type="password"] {
+    border: 1.5px solid #B6B6B6;
+    border-left-color: #FA8072;
+  }
+
+  input[type="file"] {
+    color: #B6B6B6;
+    font-style: italic;
+  }
+
+  input[type='submit'] {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
+
+  input.check_boxes {
+    margin-left: 30px;
+    vertical-align: -3px;
+    border-left-color: #FA8072;
+  }
+
+  // Form input label - WORKING
+  label {
+    margin-top: 8px;
+    color: #FA8072;
+  }
+
+
+ h3 {
+  color: red;
+ }
+
+
+}
+
+.form-h3 {
+  color: #B6B6B6;
+  font-size: 14px;
+  margin-left: 13px;
+}
+
+
+.form-p {
+  color: #B6B6B6;
+  font-size: 14px;
+  margin-left: 13px;
+}
+
+
+
+
+// <h3>Cancel my account</h3>
+
+// <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+// <%= link_to "Back", :back %>
+
+// Input fields- WORKING
+
+// .simple_form input[type="text"]{
+//   border: 1.5px solid #B6B6B6;
+//   border-left-color: #FA8072;
+// }
+
+// .simple_form input[type="email"] {
+//   border: 1.5px solid #B6B6B6;
+//   border-left-color: #FA8072;
+// }
+
+// .simple_form input[type="password"] {
+//   border: 1.5px solid #B6B6B6;
+//   border-left-color: #FA8072;
+// }
+
+
+// .simple_form input[type="file"] {
+//   color: #B6B6B6;
+//   font-style: italic;
+// }
+
+
+
+.simple_form input.check_boxes {
+  margin-left: 30px;
+  vertical-align: -3px;
+  border-left-color: #FA8072;
+}
+
+// Submit button - WORKING
+// .simple_form input[type='submit'] {
+//   margin-top: 30px;
+//   margin-bottom: 15px;
+//   font-size: 18px;
+// }
+
+
+// // Submit button - WORKING
+// div.boolean, .simple_form input[type='submit'] {
+//   margin-top: 80px;
+//   background-color: blue;
+
+// }
+
+
+
+
+
+
+
+
+

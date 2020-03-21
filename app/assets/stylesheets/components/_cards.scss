@@ -1,4 +1,6 @@
 
+/******* Home Page here *********/
+
 .home-container {
 // padding-left: 30px;
 }
@@ -131,7 +133,7 @@
   display: inline-block;
   vertical-align:top;
   align-items: center;
-
+  position: relative;
 
   margin: 15px 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
@@ -145,12 +147,37 @@
   font-family: 'Playfair Display', serif;
   font-weight: bold;
   font-size: 28px;
-  text-align: center;
-  display: inline-block;
-  padding-top: 20%;
-  font-style: italic;
   text-shadow: 4px 10px 15px rgba(89,89,89,0.94);
+  font-style: italic;
+  // position: absolute;
+
+  // left: 50%;
+  // margin-left: -50px;
+  // top: 50%;
+  // margin-top: -50px;
+  // text-center: center;
+
+  // display: inline-block;
+  // padding-top: 20%;
 }
+
+.card-events-heading p {
+  text-center: center;
+}
+
+// .container {
+//   position: relative;
+// }
+
+// .centered-element {
+//   height: 100px;
+//   width: 100px;
+//   position: absolute;
+//   left: 50%;
+//   margin-left: -50px;
+//   top: 50%;
+//   margin-top: -50px;
+// }
 
 .heading {
   font-family: 'Playfair Display', serif;
@@ -177,8 +204,7 @@
 }
 
 
-
-// /////////////////////////
+///////////////////////////////
 
 
 /******* Card Experience here *********/
@@ -247,18 +273,21 @@
 
 .experience-time {
   display: flex;
-  margin-left: 2px;
-  align-items: center;
+  // margin-left: 2px;
+  // align-items: center;
+  text-center: center;
 }
 
 .experience-location {
   display: flex;
-  margin-left: 2px;
-  align-items: center;
+  // margin-left: 50px;
+  text-center: center;
 }
 
 .experience-date {
-  margin-left: 300px;
+  margin-left: 2px;
+  text-center: center;
+
 }
 
 /******* Icon here *********/
@@ -357,7 +386,11 @@
 
 .card {
   opacity: 0.8;
-  margin-top: 40px;
+  margin: 60px 0px;
+  padding: 60px 40px;
+
+
+
 }
 
 .card h2 {
