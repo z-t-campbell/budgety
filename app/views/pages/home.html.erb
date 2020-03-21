@@ -1,77 +1,75 @@
 <!-- the list of experiences -->
 <div class="home-container">
   <h1 class="heading">Categories to choose from:</h1>
-    <div class="cards-categories">
-
-      <div class="card-events" style="background-image: url(https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80)">
-        <p> <%= link_to "Gigs", experiences_path(category: "Music Events"), :class => "card-events-heading"%> </p>
-      </div>
-      <div class="card-events" style="background-image: url(https://images.unsplash.com/photo-1530062845289-9109b2c9c868?ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80)">
-        <p> <%= link_to "Food & Drink", experiences_path(category:"Food & Drink"), :class => "card-events-heading"%> </p>
-      </div>
-      <div class="card-events" style="background-image: url(https://images.unsplash.com/photo-1514306191717-452ec28c7814?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80)">
-        <p><%= link_to "Arts, Theatre & Shows", experiences_path(category: "Arts, Theatre & Shows"), :class => "card-events-heading"%> </p>
-      </div>
-      <div class="card-events" style="background-image: url(https://images.unsplash.com/photo-1560421683-6856ea585c78?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1506&q=80)">
-        <p> <%= link_to "Classes", experiences_path(category: "Classes"), :class => "card-events-heading"%> </p>
-      </div>
-      <div class="card-events" style="background-image: url(https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80)">
-        <p><%= link_to "Beauty & Spa", experiences_path(category: "Beauty & Spa"), :class => "card-events-heading"%> </p>
-      </div>
-      <div class="card-events" style="background-image: url(https://images.unsplash.com/photo-1517957096399-3a4e3d34d95e?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80)">
-        <%= link_to "Date Ideas", experiences_path(category: "Date Ideas"), :class => "card-events-heading"%></p>
-      </div>
+  <div class="cards-categories">
+    <div class="card-events" style="background-image: url(https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80)">
+      <p> <%= link_to "Gigs", experiences_path(category: "Music Events"), :class => "card-events-heading"%> </p>
     </div>
-    <h1 class="heading">Featured experiences near you</h1>
-<% if @experiences %>
-  <div class= "cards-home">
-    <% @experiences.each do |experience| %>
-      <%= link_to experience_path(experience) do %>
-        <div class= "card-experience">
-          <%if experience.photos.attached?%>
-            <%= cl_image_tag(experience.photos.first.key)%>
-          <%else%>
-            <%= image_tag 'default-image.png'%>
-          <%end%>
-          <div>
-          <h2 class="text-capitalize"><%= link_to experience.name, experience_path(experience) %></h2>
-
-
-          <div class="card-rating">
-          <%organisation = experience.organisation%>
-            <% if organisation.experiences.each do |experience|%>
-
-              <%experience.reviews.any?%>
-            <%end%>
-              <%rating = 0%>
-              <%counter = 0%>
-              <% organisation.experiences.each do |experience|%>
-                <%experience.reviews.each do |review|%>
-                  <%counter += 1%>
-                  <%rating += review.rating%>
-                <%end%>
+    <div class="card-events" style="background-image: url(https://images.unsplash.com/photo-1530062845289-9109b2c9c868?ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80)">
+      <p> <%= link_to "Food & Drink", experiences_path(category:"Food & Drink"), :class => "card-events-heading"%> </p>
+    </div>
+    <div class="card-events" style="background-image: url(https://images.unsplash.com/photo-1514306191717-452ec28c7814?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80)">
+      <p><%= link_to "Arts, Theatre & Shows", experiences_path(category: "Arts, Theatre & Shows"), :class => "card-events-heading"%> </p>
+    </div>
+    <div class="card-events" style="background-image: url(https://images.unsplash.com/photo-1560421683-6856ea585c78?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1506&q=80)">
+      <p> <%= link_to "Classes", experiences_path(category: "Classes"), :class => "card-events-heading"%> </p>
+    </div>
+    <div class="card-events" style="background-image: url(https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80)">
+      <p><%= link_to "Beauty & Spa", experiences_path(category: "Beauty & Spa"), :class => "card-events-heading"%> </p>
+    </div>
+    <div class="card-events" style="background-image: url(https://images.unsplash.com/photo-1517957096399-3a4e3d34d95e?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80)">
+      <%= link_to "Date Ideas", experiences_path(category: "Date Ideas"), :class => "card-events-heading"%></p>
+    </div>
+  </div>
+  <h1 class="heading">Featured experiences near you</h1>
+  <% if @experiences.any? %>
+    <div class= "row">
+      <% @experiences.each do |experience| %>
+        <div class="col-12 col-md-3">
+          <%= link_to experience_path(experience) do %>
+            <div class= "card-experience">
+              <%if experience.photos.attached?%>
+                <%= cl_image_tag(experience.photos.first.key)%>
+              <%else%>
+                <%= image_tag 'default-image.png'%>
               <%end%>
-
-              <% if counter == 0 %>
-                <p>  </p>
-              <% else %>
-                <% rating /= counter %>
-                <%rating.times do %>
-                <i class="fas fa-star"></i>
-              <% end %> (<%=counter%>)
-            <%end%>
-            <%end%>
+              <div>
+                <h2 class="text-capitalize"><%= link_to experience.name, experience_path(experience) %></h2>
+                <div class="card-rating">
+                  <%organisation = experience.organisation%>
+                    <% if organisation.experiences.each do |experience|%>
+                      <%experience.reviews.any?%>
+                    <%end%>
+                    <%rating = 0%>
+                    <%counter = 0%>
+                    <% organisation.experiences.each do |experience|%>
+                      <%experience.reviews.each do |review|%>
+                        <%counter += 1%>
+                        <%rating += review.rating%>
+                      <%end%>
+                    <%end%>
+                    <% if counter == 0 %>
+                      <p>  </p>
+                    <% else %>
+                      <% rating /= counter %>
+                      <%rating.times do %>
+                      <i class="fas fa-star"></i>
+                    <% end %> (<%=counter%>)
+                  <%end%>
+                  <%end%>
+                </div>
+                <p><%=experience.date.strftime("%a %d %b") %>, <%= experience.start_time.strftime('%H:%M%p')%></p>
+                <p><i class="fas fa-map-marker-alt text-danger icon"></i><%= experience.venue_name %>, <%= experience.location.split(",").first %></p>
+                <p>Host: <%= link_to experience.organisation.name, organisation_path(experience.organisation) %></p>
+                <p class="card-price"><%= humanized_money_with_symbol(experience.price) %></p>
+              </div>
+              <div class= "category-card">
+                <%= experience.category %>
+              </div>
             </div>
-              <p><%=experience.date.strftime("%a %d %b") %>, <%= experience.start_time.strftime('%H:%M%p')%></p>
-              <p><i class="fas fa-map-marker-alt text-danger icon"></i><%= experience.venue_name %>, <%= experience.location.split(",").first %></p>
-              <p>Host: <%= link_to experience.organisation.name, organisation_path(experience.organisation) %></p>
-            <p class="card-price"><%= humanized_money_with_symbol(experience.price) %></p>
-          </div>
-          <div class= "category-card">
-            <%= experience.category %>
-          </div>
+          <%end%>
         </div>
       <%end%>
-    <%end%>
-  </div>
-<%end%>
+    </div>
+  <% end %>
+</div>
