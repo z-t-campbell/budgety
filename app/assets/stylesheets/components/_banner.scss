@@ -6,17 +6,14 @@
   background-image: url(https://images.unsplash.com/photo-1511184150666-9bb7d41a88f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);
   background-size: cover;
 }
-
 .fas {
   color: #FFC65A;
 }
-
 .banner {
   background-size: cover;
   background-position: center;
   padding: 150px 0;
 }
-
 .banner h1 {
   margin: 0;
   color: white;
@@ -24,18 +21,15 @@
   font-size: 32px;
   font-weight: bold;
 }
-
 .banner p {
   font-size: 20px;
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
-
 // ******** Banner for sign in and sign up forms **************
-
 .banner2 {
-  height: 115vh;
+  height: 150vh;
   width: 250vh;
   background-position: center;
   background-repeat: no-repeat;
@@ -43,30 +37,24 @@
   background-size: cover;
   // margin-left: -300px;
 }
-
 .banner7 {
-  height: 150vh;
-  width: 100%;
+  height: 110vh;
+  width: 250vh;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url(https://images.unsplash.com/photo-1580657274234-7339717f4541?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);
+  background-image: url(https://images.unsplash.com/photo-1513530534585-c7b1394c6d51?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80);
   background-size: cover;
 }
-
-
 // Banner for new and edit organisation
-.banner3 {
-  height: 150vh;
-  width: 200vh;
+.banner8 {
+  height: 110vh;
+  width: 250vh;
   background-position: top;
   background-repeat: no-repeat;
   background-image: url(https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);
   background-size: cover;
   // margin-left: -300px;
 }
-
-
-
 // Banner for new and edit experience
 .banner4 {
   height: 150vh;
@@ -77,18 +65,6 @@
   background-size: cover;
   // margin-left: -300px;
 }
-
-.banner3 {
-  height: 100vh;
-  width: 100vw;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: url(https://images.unsplash.com/photo-1580657274234-7339717f4541?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);
-  background-size: cover;
-  margin-left: -99px;
-}
-
-
 // Banner for edit user registration
 .banner5 {
   height: 200vh;
@@ -99,8 +75,6 @@
   background-size: cover;
   // margin-left: -300px;
 }
-
-
 // Banner for listings
 .banner6 {
   // height: 16vh;
