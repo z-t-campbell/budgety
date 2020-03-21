@@ -1,6 +1,7 @@
 
 // Overall box
 
+
 .org-box{
   padding: 20px 40px 10px 100px;
   margin: 30px;
@@ -14,7 +15,13 @@
   // font-family: 'Playfair Display', serif;
   margin-bottom: 80px;
   color: white;
+  width: fit-content;
+  padding: 16px 32px;
+  border-radius: 5px;
   font-weight: bold;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(https://images.unsplash.com/photo-1503455637927-730bce8583c0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);
 
 }
 
@@ -32,8 +39,8 @@
 
 // Displaying Organisation infor and experiences side by side
 .org-flex1 {
-  display: inline-block;
-  vertical-align:top;
+  // display: inline-block;
+  // vertical-align:top;
   padding-right: 50px;
   padding-bottom: 80px;
 }
@@ -47,7 +54,7 @@
 }
 
 .org-info-card{
-  width: 80%;
+  width: 100%;
   padding: 10px 0px 10px 2px;
   margin: 5px 5px 10px 5px;
 
@@ -142,7 +149,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 10px 10px;
   margin: 5px 0px 15px 0px;
-  width: 110%;
+  width: 100%;
   font-size: 10px;
   line-height: 0;
   word-wrap: break-word;
