@@ -1,21 +1,27 @@
-<div class="hero row align-items-center">
+
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-12 col-lg-6 my-5">
-      <div class="card" style="width: 28rem;">
-        <div class="search-form box-shadow p-4">
-          <div class="text-center">
-<h1>Reviews</h1>
-</div>
-<%= simple_form_for [@order, @review] do |f| %>
-  <%= f.input :title %>
-  <%= f.input :content %>
-  <%= f.input :rating %>
-  <%= f.submit "Add a review", class: "btn btn-primary btn-lg btn-block" %>
-<% end %>
-</div>
-</div>
-</div>
-</div>
-</div>
+  <div class="banner5">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-6 md-6">
+        <div class="card2" style="width: 50rem;">
+          <div class="search-form box-shadow p-4">
+
+            <div class="text-center">
+              <h2> Edit your review here: </h2>
+            </div>
+
+
+              <%= simple_form_for [@order, @review] do |f| %>
+                <%= f.input :title %>
+                <%= f.input :content %>
+                <%= f.input :rating %>
+                <%= f.submit "Add a review", class: "btn btn-primary btn-lg btn-block" %>
+              <% end %>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
