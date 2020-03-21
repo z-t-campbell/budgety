@@ -1,11 +1,9 @@
-
-
 <div class="banner6">
 <div class="org-box">
   <!-- Greeting to user -->
     <div class="org-greeting">
       <h1> Hello <%= current_user.first_name %> 👋 </h1>
-      <p> Find your organisation listings below:  </p>
+      <p> Find your organisations and  listings below  </p>
     </div>
 
 
@@ -49,7 +47,9 @@
             <%= link_to 'Edit', edit_organisation_path(organisation), :class => "btn btn-danger org-button"%>
             <%= link_to 'Delete', organisation_path(organisation), method: :delete, :class => "btn btn-secondary org-button"%>
           </div>
-            <p class="org-create"> Or to create a new organisation,<%= link_to'click here', new_organisation_experience_path(organisation)%> </p>
+          <div class="text-justify">
+            <p class="org-create"> To create a new experience click <%= link_to'here', new_organisation_experience_path(organisation)%> </p>
+          </div>
         </div>
 
         <div class="org-flex1">
