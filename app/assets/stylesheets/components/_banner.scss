@@ -39,7 +39,8 @@
 }
 .banner7 {
   height: 110vh;
-  width: 250vh;
+  width: 230vh;
+  margin-left: -235px;
   background-position: center;
   background-repeat: no-repeat;
   background-image: url(https://images.unsplash.com/photo-1513530534585-c7b1394c6d51?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80);
@@ -49,6 +50,8 @@
 .banner8 {
   height: 110vh;
   width: 250vh;
+  margin-left: -280px;
+  padding-top: 25px;
   background-position: top;
   background-repeat: no-repeat;
   background-image: url(https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);
@@ -82,3 +85,13 @@
   background-size: cover;
   // margin-left: -300px;
 }
+
+.banner9 {
+  height: 162vh;
+  width: 230vh;
+  margin-left: -115px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(https://images.unsplash.com/photo-1513530534585-c7b1394c6d51?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80);
+  background-size: cover;
+  }
