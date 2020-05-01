@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="banner5">
+  <div class="banner7">
     <div class="row justify-content-center">
       <div class="col-12 col-lg-6 md-6">
         <div class="card2" style="width: 50rem;">
@@ -8,13 +8,13 @@
             <div class="text-center">
               <h2> Leave a review here: </h2>
             </div>
-
-
             <%= simple_form_for [@order, @review] do |f| %>
               <%= f.input :title %>
               <%= f.input :content %>
               <%= f.input :rating, label: 'Star ratings', collection: [1, 2, 3, 4, 5] %>
-              <%= f.submit "Add a review", class: "btn btn-primary btn-lg btn-block" %>
+              <div class="text-center">
+              <%= f.submit "Add a review", class: "btn-flat3" %>
+            </div>
             <% end %>
 
           </div>
