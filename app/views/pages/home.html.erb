@@ -25,7 +25,7 @@
   <% if @experiences.any? %>
     <div class= "row">
       <% @experiences.each do |experience| %>
-        <div class="col-12 col-md-3">
+        <div class="col-lg-3 col-md-6 col-sm-6">
           <%= link_to experience_path(experience) do %>
             <div class= "card-experience">
               <%if experience.photos.attached?%>

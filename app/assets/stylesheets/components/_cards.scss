@@ -2,7 +2,7 @@
 /******* Home Page here *********/
 
 .home-container {
-// padding-left: 30px;
+padding-left: 30px;
 }
 
 .cards-home{
@@ -17,10 +17,8 @@
 .cards-categories {
   padding: 10px 32px;
   display: grid;
-  grid-template-columns: repeat(12, 0.5fr);
-  grid-auto-rows: auto;
-  // grid-gap: 1rem;
-  grid-gap: 10px 5px;
+  grid-template-columns: repeat(3, 0.5fr);
+  grid-gap: 10px;
   overflow-x: scroll;
   width: 100%;
 }
@@ -130,8 +128,8 @@
 .card-events {
   background-size: cover;
   background-position: center;
-  height: 170px;
-  width: 230px;
+  height: 246px;
+  width: 355px;
   display: inline-block;
   vertical-align:top;
   align-items: center;
