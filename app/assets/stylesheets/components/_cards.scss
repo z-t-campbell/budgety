@@ -23,6 +23,30 @@ padding-left: 30px;
   width: 100%;
 }
 
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards-categories {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 576px) {
+  .cards-categories {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 768px) {
+  .cards-categories {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 992px) {
+  .cards-categories {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
 .category-container {
   margin-top: 10px;
 
